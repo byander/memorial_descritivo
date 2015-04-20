@@ -1,0 +1,150 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="Delimitador" Type="System.String" Scope="User">
+      <Value Profile="(Default)">;</Value>
+    </Setting>
+    <Setting Name="SepDecimal" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">,</Value>
+    </Setting>
+    <Setting Name="Mazimute" Type="System.String" Scope="User">
+      <Value Profile="(Default)">com azimute</Value>
+    </Setting>
+    <Setting Name="Mconfronto" Type="System.String" Scope="User">
+      <Value Profile="(Default)">confrontando com terras de</Value>
+    </Setting>
+    <Setting Name="MCoord" Type="System.String" Scope="User">
+      <Value Profile="(Default)">definido pelas coordenadas</Value>
+    </Setting>
+    <Setting Name="Mdist" Type="System.String" Scope="User">
+      <Value Profile="(Default)">e distância de</Value>
+    </Setting>
+    <Setting Name="Mdivisa" Type="System.String" Scope="User">
+      <Value Profile="(Default)">segue por</Value>
+    </Setting>
+    <Setting Name="Meste" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:</Value>
+    </Setting>
+    <Setting Name="Mfim" Type="System.String" Scope="User">
+      <Value Profile="(Default)">encerrando este perímetro.</Value>
+    </Setting>
+    <Setting Name="Minicio" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Inicia-se a descrição deste perímetro no vértice</Value>
+    </Setting>
+    <Setting Name="Mligacao" Type="System.String" Scope="User">
+      <Value Profile="(Default)">até o vértice</Value>
+    </Setting>
+    <Setting Name="Mnorte" Type="System.String" Scope="User">
+      <Value Profile="(Default)">N:</Value>
+    </Setting>
+    <Setting Name="Mrepeticao" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Mtitulo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Memorial descritivo</Value>
+    </Setting>
+    <Setting Name="Munidade" Type="System.String" Scope="User">
+      <Value Profile="(Default)">m</Value>
+    </Setting>
+    <Setting Name="Pcidade" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Pprofissional" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Pregistro" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Pdata" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="NchkNTit" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNImo" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNImoV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNMun" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNMunV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNMat" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNMatV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNCom" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNComV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNCar" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNCarV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNInc" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNIncV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNAre" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNAreV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNPer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNPerV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNPro" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNProV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNPto" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNCoo" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNDis" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNAzi" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNCon" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNDiv" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNCid" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNDat" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="NchkNNom" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NchkNReg" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
