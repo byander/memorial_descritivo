@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Dados_Memorial_Descritivo>
+  <imovel_dados>
+    <Imovel>Boa Vista II</Imovel>
+    <Municipio>Curitiba</Municipio>
+    <Matricula>1015</Matricula>
+    <Comarca>Curitiba</Comarca>
+    <Cartorio>2º Ofício de não sei o que</Cartorio>
+    <CodIncra>5555</CodIncra>
+    <Area>42.182.495.473,49</Area>
+    <Areaha>4.218.249,5473</Areaha>
+    <Perimetro>828.724,54</Perimetro>
+    <Proprietario>Ander</Proprietario>
+    <MC>75</MC>
+    <Longitude>W</Longitude>
+    <Fuso>18</Fuso>
+    <Hemisferio>Norte</Hemisferio>
+    <Datum>SIRGAS-2000</Datum>
+  </imovel_dados>
+  <profissional>
+    <Cidade>Curitiba</Cidade>
+    <Data />
+    <NomeProf>Ander</NomeProf>
+    <Registro>123456</Registro>
+  </profissional>
+  <vertices>
+    <vertice>
+      <vertice_id>P1</vertice_id>
+      <coord_x>482703,752</coord_x>
+      <coord_y>7199437,511</coord_y>
+      <distancia>152578,87</distancia>
+      <azimute>208° 08' 42,80''</azimute>
+      <confrontate>Paulo de Tal</confrontate>
+      <divisa>Estrada Municipal</divisa>
+    </vertice>
+    <vertice>
+      <vertice_id>P2</vertice_id>
+      <coord_x>410731,079</coord_x>
+      <coord_y>7064900,356</coord_y>
+      <distancia>202226,91</distancia>
+      <azimute>258° 19' 26,88''</azimute>
+      <confrontate>Jaime Batista</confrontate>
+      <divisa>Estrada Municipal</divisa>
+    </vertice>
+    <vertice>
+      <vertice_id>P3</vertice_id>
+      <coord_x>212688,623</coord_x>
+      <coord_y>7023974,718</coord_y>
+      <distancia>174400,21</distancia>
+      <azimute>353° 01' 42,00''</azimute>
+      <confrontate>Jaime Batista</confrontate>
+      <divisa>Estrada Municipal</divisa>
+    </vertice>
+    <vertice>
+      <vertice_id>P4</vertice_id>
+      <coord_x>191520,19</coord_x>
+      <coord_y>7197085,463</coord_y>
+      <distancia>147976,54</distancia>
+      <azimute>75° 49' 52,43''</azimute>
+      <confrontate>Jaime Batista</confrontate>
+      <divisa>Cerca</divisa>
+    </vertice>
+    <vertice>
+      <vertice_id>P5</vertice_id>
+      <coord_x>334995,128</coord_x>
+      <coord_y>7233307,004</coord_y>
+      <distancia>151542,01</distancia>
+      <azimute>102° 54' 52,67''</azimute>
+      <confrontate>Grupo São Roque</confrontate>
+      <divisa>Cerca</divisa>
+    </vertice>
+  </vertices>
+</Dados_Memorial_Descritivo>
