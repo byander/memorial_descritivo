@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="{% if page.lang %} {{page.lang}} {% else %} {{site.lang}} {% endif %}">
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" type="text/css" href="/libs/bootstrap-3.0.3/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/custom.css" />
-
-    <title>{% if page.title %} {{page.title}} | {% endif %} andersonvom.github.io</title>
-  </head>
-
-  <body>
-    <div class="wrapper">
-      <header class="navbar navbar-inverse" role="banner">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <div class="navbar-brand">
-              <h2 class=title>
-                <a href="/" rel="home">{{site.title}}</a>
-                <p class="tagline">{{site.tagline}}</p>
-              </h2>
-            </div>
-          </div>
-
-          <nav class="collapse navbar-collapse navbar-right" role="navigation">
-            <ul class="nav navbar-nav">
-              <!-- <li><a href="#">Projects</a></li> -->
-              <!-- <li><a href="#">Photography</a></li> -->
-              <li><a href="/about">About</a></li>
-            </ul>
-          </nav>
-        </div>
-
-        <!-- TODO: add a sidebar(?) for twitter feed, networks, about_me -->
-      </header>
-
-      <div class="container">
-        <section class="main_content">
-          {{ content }}
-        </section>
-      </div>
-    </div>
-
-    <footer class="panel-footer" role="contentinfo">
-      <div class="container">
-        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.en_US">
-          <img alt="Creative Commons License" src="http://i.creativecommons.org/l/by/4.0/88x31.png" />
-        </a>
-        ~andersonvom is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.en_US">Creative Commons Attribution 4.0 International License</a>.
-      </div>
-    </footer>
-
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="/libs/bootstrap-3.0.3/js/bootstrap.min.js"></script>
-    {% include google_analytics.html %}
-  </body>
+	<head>
+		<meta charset='utf-8'>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" type="text/css" href="/libs/bootstrap-3.0.3/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/stylesheets/custom.css" />
+		
+		<title>Gerar Memorial Descritivo</title>
+	</head>
+	
+	<body>
+		<div class="wrapper">
+			<header class="navbar navbar-inverse" role="banner">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						
+						<div class="navbar-brand">
+							<h2 class=title>
+								<a href="/" rel="home">{{site.title}}</a>
+								<p class="tagline">{{site.tagline}}</p>
+							</h2>
+						</div>
+					</div>
+					
+					<nav class="collapse navbar-collapse navbar-right" role="navigation">
+						<ul class="nav navbar-nav">
+							<!-- <li><a href="#">Projects</a></li> -->
+							<!-- <li><a href="#">Photography</a></li> -->
+							<li><a href="/about">Sobre</a></li>
+						</ul>
+					</nav>
+				</div>
+				
+				<!-- TODO: add a sidebar(?) for twitter feed, networks, about_me -->
+			</header>
+			
+			<div class="container">
+				<section class="main_content">
+					{{ content }}
+				</section>
+			</div>
+		</div>
+		
+		<footer class="panel-footer" role="contentinfo">
+			<div class="container">
+				<a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.en_US">
+					<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by/4.0/88x31.png" />
+				</a>
+			</div>
+		</footer>
+		
+		<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="/libs/bootstrap-3.0.3/js/bootstrap.min.js"></script>
+		{% include google_analytics.html %}
+	</body>
 </html>
