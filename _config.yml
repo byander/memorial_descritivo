@@ -2,7 +2,7 @@
 markdown: kramdown
 
 # Blog Settings
-lang: en
+lang: pt-BR
 domain: http://byander.github.io/memorial_descritivo
-title: Memorial Descritivo
+title: 'Memorial Descritivo'
 tagline: 'Anderson'
