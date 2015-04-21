@@ -1,0 +1,46 @@
+/* ===== Global Changes ===== */
+
+body {
+  background: url("../images/bkg.png") 0 0;
+  color: #ddd;
+  font-size: 16px;
+}
+pre,code {
+  color: #2c3;
+  background-color: #333;
+}
+a, a:hover { color: #6cf; }
+
+
+/* ===== Sticky Footer ===== */
+
+html, body { height: 100%; }
+.wrapper {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -60px;
+  padding: 0 0 60px;
+}
+footer {
+  height: 60px;
+}
+
+
+/* ===== Specific Changes ===== */
+
+.title:before { content: "~"; }
+.title { margin-top: 0; margin-bottom: 0; }
+.tagline {
+  color: #2c3;
+  margin-left: 25px;
+  font-size: 15px;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.navbar-brand { padding-top: 5px; padding-bottom: 0; }
+header nav { margin-top: 15px; }
+.panel-footer {
+  background-color: rgb(34, 34, 34);
+  border-color: rgb(8, 8, 8);
+}
+
+.post_title { color: #6cf; }
