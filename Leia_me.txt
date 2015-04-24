@@ -1,0 +1,2 @@
+# memorial_descritivo
+Gerador de memorial descritivo de perímetro com base em coordenadas cartesianas e confrontantes, gerando distâncias e azimutes ponto a ponto.
