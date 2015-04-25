@@ -7,6 +7,21 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+	function loadComments(data) {
+		// ...
+	}
+	
+	$.ajax("https://api.github.com/repos/byander/memorial_descritivo/issues/1/comments", {
+		headers: {Accept: "application/vnd.github.full+json"},
+		success: function(msg){
+			loadComments(msg);
+		}
+	});
+</script>
+    
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
