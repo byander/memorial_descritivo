@@ -7,17 +7,17 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            Poole
-tagline:          The Jekyll Butler
-url:              http://getpoole.com
+title:            Memorial Descritivo - Programa
+tagline:          byander
+url:              http://byander.github.io/memorial_descritivo/
 paginate:         1
 baseurl:          /
 author:
-  name:           Mark Otto
-  url:            https://twitter.com/mdo
-  email:          markdotto@gmail.com
+  name:           Anderson 
+  url:            https://twitter.com/byander
+  email:          byander@gmail.com
 
 # Custom vars
 version:          1.0.0
 github:
-  repo:           https://github.com/poole/poole
+  repo:           https://github.com/byander/memorial_descritivo
