@@ -1,6 +1,6 @@
 ---
 layout: post
-title: About Me
+title: Sobre
 ---
 
 I'm [Anderson Mesquita][linkedin] (@andersonvom) and I'm a software
@@ -14,16 +14,6 @@ contribute to [Openstack][] as a TW consultant at [Rackspace][].  In the
 past I have worked for the [Inter-American Development Bank][iadb], the
 [Network and Telecommunications Group][great], the [Federal University
 of Ceará][ufc].
-
-In my spare time you can find me hacking away, practicing Aikido,
-photographing, riding my bike around, ballroom dancing, enjoying good
-beer with my friends, playing guitar, or doing something completely
-random.
-
-If you want to **contact me**, just prove that you're not a robot (I
-tend not to trust them a whole lot) and find out what my email address
-is by following this tip: [YW5kZXJzb252b20gKiBnbWFpbAo=][base64].
-Alternatively, you can also take a look at my [resume][].
 
 [linkedin]: http://linkedin.com/andersonmesquita
   "Take a look at my linked in profile"
