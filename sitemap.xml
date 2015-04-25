@@ -19,7 +19,7 @@
   {% if page.layout != nil %}
   {% if page.layout != 'feed' %}
   <url>
-    <loc>http://andersonvom.github.io{{ page.url | remove: 'index.html' }}</loc>
+    <loc>http://byander.github.io/memorial_descritivo{{ page.url | remove: 'index.html' }}</loc>
     {% if page.last_update != nil %}
     <lastmod>{{page.last_update | date_to_xmlschema}}</lastmod>
     {% endif %}
