@@ -1,4 +1,0 @@
-andersonvom.github.io
-=====================
-
-Blog
