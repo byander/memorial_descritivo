@@ -18,10 +18,10 @@
     <Datum>SIRGAS-2000</Datum>
   </imovel_dados>
   <profissional>
-    <Cidade />
+    <Cidade>Curitiba</Cidade>
     <Data />
-    <NomeProf />
-    <Registro />
+    <NomeProf>Ander</NomeProf>
+    <Registro>123456</Registro>
   </profissional>
   <vertices>
     <vertice>
