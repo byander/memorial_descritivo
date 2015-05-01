@@ -23,9 +23,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ProductName>Gerar Memorial Descritivo</ProductName>
-    <PublisherName>Gerar Memorial Descritivo</PublisherName>
-    <SuiteName>Gerar Memorial Descritivo</SuiteName>
+    <ProductName>Gerar Memorial</ProductName>
+    <PublisherName>Gerar Memorial</PublisherName>
+    <SuiteName>Gerar Memorial</SuiteName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>2.0.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -133,6 +133,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="frmDefMemorial.Designer.vb">
       <DependentUpon>frmDefMemorial.vb</DependentUpon>
     </Compile>
@@ -249,7 +250,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icone.ico" />
     <Content Include="icone2.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -257,7 +257,7 @@
       <Visible>False</Visible>
       <Description>Projeto Memorial Descritivo</Description>
       <Progid>123</Progid>
-      <DefaultIcon>icone.ico</DefaultIcon>
+      <DefaultIcon>icone2.ico</DefaultIcon>
     </FileAssociation>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -297,6 +297,7 @@ Public Class funcoes
             Dim ultimaVersao As String = web.DownloadString("https://raw.githubusercontent.com/byander/memorial_descritivo/publish/versao.txt")
             Dim versaoAtual As String = My.Application.Info.Version.ToString
 
+            'Se flag = True, é porque tem atualização disponível
             If versaoAtual < ultimaVersao Then
                 flag = True
             Else

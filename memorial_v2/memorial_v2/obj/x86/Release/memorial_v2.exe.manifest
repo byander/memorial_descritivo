@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ldV1cBp/cCUuGzG42Qkpi8tVtQ4=</dsig:DigestValue>
+        <dsig:DigestValue>GFZ2n8LK/AvKUoIzuXvJl1uuCnE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,15 +66,6 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="icone.ico" size="67646">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>fT+CH5yUIEOHyDUI5jGu4Sfln84=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="icone2.ico" size="67646">
     <hash>
       <dsig:Transforms>
@@ -93,5 +84,5 @@
       <dsig:DigestValue>gVhj+2V4N2U8f6d4MK0VjVPCick=</dsig:DigestValue>
     </hash>
   </file>
-  <fileAssociation extension=".pmd" description="Projeto Memorial Descritivo" progid="123" defaultIcon="icone.ico" xmlns="urn:schemas-microsoft-com:clickonce.v1" />
+  <fileAssociation extension=".pmd" description="Projeto Memorial Descritivo" progid="123" defaultIcon="icone2.ico" xmlns="urn:schemas-microsoft-com:clickonce.v1" />
 </asmv1:assembly>
