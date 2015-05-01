@@ -31,11 +31,11 @@ Public Class frmPai
 
     Dim ver As Version = My.Application.Info.Version
     Dim versao As String = ver.Major & "." & ver.Minor & "." & ver.MajorRevision & "." & ver.MinorRevision
+    Public Initializing As Boolean = True 'Para prevenir que form verifique se houve alteração nos campos antes do carregamento total
 
-    'Novo imóvel
-    Private Sub ribBtnImoNovo_Click(sender As Object, e As EventArgs) Handles ribBtnImoNovo.Click
-        Dim frmFormato As New frmFormatoCSV
-        frmFormato.ShowDialog()
+    Public Sub New()
+        InitializeComponent()
+        Initializing = True
     End Sub
 
     'Carregando do form
@@ -50,6 +50,39 @@ Public Class frmPai
         'Form
         NomeProjeto = "Sem título"
         titulo_form(NomeProjeto, versao)
+
+        Initializing = False
+    End Sub
+
+    'Atalhos do teclado
+    Private Sub frmPai_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        'Novo projeto
+        If e.Modifiers = Keys.Control Then
+            If e.KeyCode = Keys.N Then
+                ribBtnNovo_Click(sender, e)
+            End If
+        End If
+
+        'Abrir projeto
+        If e.Modifiers = Keys.Control Then
+            If e.KeyCode = Keys.O Then
+                RibBtnAbre_Click(sender, e)
+            End If
+        End If
+
+        'Salvar projeto
+        If e.Modifiers = Keys.Control Then
+            If e.KeyCode = Keys.S Then
+                RibBtnSave_Click(sender, e)
+            End If
+        End If
+
+        'Sair projeto
+        If e.Modifiers = Keys.Control Then
+            If e.KeyCode = Keys.W Then
+                RibBtnSair_Click(sender, e)
+            End If
+        End If
     End Sub
 
     'Caixas das Casas Decimais
@@ -86,6 +119,12 @@ Public Class frmPai
         frmDefTxtMemorial.ShowDialog()
     End Sub
 
+    'Formato CSV
+    Private Sub ribBtnImoNovo_Click(sender As Object, e As EventArgs) Handles ribBtnImoNovo.Click
+        Dim frmFormato As New frmFormatoCSV
+        frmFormato.ShowDialog()
+    End Sub
+
     'Salvar Projeto
     Private Sub RibBtnSave_Click(sender As Object, e As EventArgs) Handles RibBtnSave.Click
         'Se o projeto nunca foi salvo, ou seja, ainda não existe um arquivo .pmd
@@ -105,6 +144,26 @@ Public Class frmPai
             .Filter = "Projeto Memorial Descritivo (*.pmd)|*.pmd"
             .FilterIndex = 2
             .RestoreDirectory = True
+        End With
+        If SaveProjeto.ShowDialog() = DialogResult.OK Then
+            arquivo = SaveProjeto.FileName
+            If [String].IsNullOrEmpty(arquivo) Then
+                MessageBox.Show("Arquivo inválido", "Salvar Como", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                XMlSaveImovelDados(arquivo)
+            End If
+        End If
+    End Sub
+
+    'Projeto Salvar Como
+    Private Sub RibBtnSaveAs_Click(sender As Object, e As EventArgs) Handles RibBtnSaveAs.Click
+        Dim arquivo As String
+        With SaveProjeto
+            .Title = "Salvar Cópia do Projeto"
+            .Filter = "Projeto Memorial Descritivo (*.pmd)|*.pmd"
+            .FilterIndex = 2
+            .RestoreDirectory = True
+            .FileName = NomeProjeto
         End With
         If SaveProjeto.ShowDialog() = DialogResult.OK Then
             arquivo = SaveProjeto.FileName
@@ -166,9 +225,21 @@ Public Class frmPai
         End With
 
         'Imóvel - Preencher os dados
+        Dim CasaDec1 As String = Convert.ToString(frmImovel.NumDecAream.Value)
+        Dim CasaDec2 As String = Convert.ToString(frmImovel.NumDecAreaha.Value)
+        Dim CasaDec3 As String = Convert.ToString(frmImovel.NumDecPer.Value)
+
         Dim i As Integer = 0
         For Each valor In dadosImovel
-            XMlSaveDados(arrayImovel(i), valor, writer)
+            If i = 6 Then
+                XMlSaveDadosAtri(arrayImovel(i), valor, "casas", CasaDec1, writer)
+            ElseIf i = 7 Then
+                XMlSaveDadosAtri(arrayImovel(i), valor, "casas", CasaDec2, writer)
+            ElseIf i = 8 Then
+                XMlSaveDadosAtri(arrayImovel(i), valor, "casas", CasaDec3, writer)
+            Else
+                XMlSaveDados(arrayImovel(i), valor, writer)
+            End If
             i = i + 1
         Next
         writer.WriteEndElement() 'Fim 'imovel'
@@ -227,6 +298,15 @@ Public Class frmPai
     'Salvar dados no arquivo XML
     Private Sub XMlSaveDados(campo As String, ByVal valor As String, ByVal writer As XmlTextWriter)
         writer.WriteStartElement(campo)
+        ' writer.WriteAttributeString(idatributo, atributo)
+        writer.WriteString(valor)
+        writer.WriteEndElement()
+    End Sub
+
+    'Salvar dados no arquivo XML com atributos das casas decimais
+    Private Sub XMlSaveDadosAtri(campo As String, ByVal valor As String, ByVal idatributo As String, ByVal atributo As String, ByVal writer As XmlTextWriter)
+        writer.WriteStartElement(campo)
+        writer.WriteAttributeString(idatributo, atributo)
         writer.WriteString(valor)
         writer.WriteEndElement()
     End Sub
@@ -287,6 +367,7 @@ Public Class frmPai
                 AbrirProjeto()
             End If
         Else
+            limpaDadosTabela() 'Tabela
             AbrirProjeto()
         End If
     End Sub
@@ -331,6 +412,10 @@ Public Class frmPai
         'carrega o arquivo XML
         oXML.Load(ArquivoXML)
 
+        Dim CasaDec1 As String = Convert.ToString(frmImovel.NumDecAream.Value)
+        Dim CasaDec2 As String = Convert.ToString(frmImovel.NumDecAreaha.Value)
+        Dim CasaDec3 As String = Convert.ToString(frmImovel.NumDecPer.Value)
+
         'Imóvel - Dados
         With frmImovel
             .txtImovel.Text = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(0).InnerText
@@ -340,8 +425,11 @@ Public Class frmPai
             .txtCartorio.Text = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(4).InnerText
             .txtCodIncra.Text = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(5).InnerText
             .txtArea.Text = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(6).InnerText
+            .NumDecAream.Value = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(6).Attributes(0).InnerText
             .txtAreaha.Text = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(7).InnerText
+            .NumDecAreaha.Value = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(7).Attributes(0).InnerText
             .txtPerimetro.Text = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(8).InnerText
+            .NumDecPer.Value = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(8).Attributes(0).InnerText
             .txtProprietario.Text = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(9).InnerText
             .cboMC.Text = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(10).InnerText
             .cboLongitude.Text = oXML.SelectSingleNode("Dados_Memorial_Descritivo").SelectSingleNode("imovel_dados").ChildNodes(11).InnerText
@@ -442,8 +530,9 @@ Public Class frmPai
             limpaDadosProfi() 'Imóvel - Profissional
             limpaDadosTabela() 'Tabela
             disable_botoes() 'Desabilita botões
-            frmImovel.RichTxtMemo.Text = "" 'Texto Memorial  
-            titulo_form("Sem título", versao)
+            frmImovel.RichTxtMemo.Text = "" 'Texto Memorial
+            NomeProjeto = "Sem título"
+            titulo_form(NomeProjeto, versao)
         End If
     End Sub
 
@@ -479,8 +568,14 @@ Public Class frmPai
         End If
     End Sub
 
+    'Informação do programa
     Private Sub ribBtnSobre_Click(sender As Object, e As EventArgs) Handles ribBtnSobre.Click
         Dim frmSobre1 As New frmSobre
         frmSobre1.ShowDialog()
+    End Sub
+
+    'Verificar atualização
+    Private Sub ribBtnAtualiza_Click(sender As Object, e As EventArgs) Handles ribBtnAtualiza.Click
+        checaAtualizacao()
     End Sub
 End Class

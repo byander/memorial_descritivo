@@ -4,6 +4,8 @@ Imports memorial_v2.funcoes
 
 Imports System.Globalization
 Imports System.Threading
+Imports System.Net  'Para conexão com a internet para atualizar o programa
+
 
 Public Class frmImovel
 
@@ -36,14 +38,19 @@ Public Class frmImovel
     End Property
     Public Shared m_per As Double
 
+    'Carregamento do form
     Private Sub frmImovel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Configurações regionais
         Thread.CurrentThread.CurrentCulture = New CultureInfo("pt-BR")
 
         'Versão no Label
-        lblVersaoAtual.Text = "Há nova versão disponível. Clique aqui para download."
-        lblVersaoAtual.Text = lblVersaoAtual.Text & vbNewLine & "Sua versão: " & frmPai.ProductVersion
-
+        If checaAtualizacao2() = True Then
+            Dim web As New WebClient
+            Dim ultimaVersao As String = web.DownloadString("https://raw.githubusercontent.com/byander/memorial_descritivo/publish/versao.txt")
+            lblVersaoAtual.Visible = True
+            lblVersaoAtual.Text = "Há uma nova versão disponível. Clique aqui para download."
+            lblVersaoAtual.Text = lblVersaoAtual.Text & vbNewLine & "Sua versão: " & frmPai.ProductVersion & "       Nova versão: " & ultimaVersao
+        End If
 
         Me.ControlBox = False
         Me.WindowState = FormWindowState.Maximized
@@ -601,6 +608,20 @@ Public Class frmImovel
             End If
         Next
 
+        Dim CasaDec1 As String = Convert.ToString(NumDecAream.Value)
+        Dim CasaDec2 As String = Convert.ToString(NumDecAreaha.Value)
+        Dim CasaDec3 As String = Convert.ToString(NumDecPer.Value)
+
+        'Área em m²
+        Aream2 = Math.Abs(Aream2 / 2)
+        txtArea.Text = formataCasaDecimais(Aream2, CasaDec1)
+
+        'Área em ha
+        txtAreaha.Text = formataCasaDecimais(Aream2 / 10000, CasaDec2)
+
+        'Perimetro
+        txtPerimetro.Text = formataCasaDecimais(per, CasaDec3)
+
         verifica_salvo(False, frmPai.NomeProjeto)
     End Sub
 
@@ -620,13 +641,13 @@ Public Class frmImovel
         End If
     End Sub
 
-    'Ativa ou desativa o campo da �Área (ha) e casas decimais do mesmo
+    'Ativa ou desativa o campo da Área (ha) e casas decimais do mesmo
     Private Sub chkAreaha_CheckedChanged(sender As Object, e As EventArgs) Handles chkAreaha.CheckedChanged
         If (chkAreaha.Checked = True) Then
             txtAreaha.Enabled = True
             NumDecAreaha.Enabled = True
         ElseIf (chkAreaha.Checked = False) Then
-            txtArea.Enabled = False
+            txtAreaha.Enabled = False
             NumDecAreaha.Enabled = False
         End If
     End Sub
@@ -722,6 +743,12 @@ Public Class frmImovel
             nome_arquivo = Path.GetFileName(arquivo)
             Try
 
+                Dim CasaDec1 As String = Convert.ToString(NumDecAream.Value)
+                Dim CasaDec2 As String = Convert.ToString(NumDecAreaha.Value)
+                Dim CasaDec3 As String = Convert.ToString(NumDecPer.Value)
+
+                formataCasaDecimais(Double.Parse("3"), CasaDec1)
+
                 Dim inputRecord As String = Nothing
                 Dim inReader As StreamReader = File.OpenText(arquivo)
                 Dim dados() As String
@@ -734,9 +761,9 @@ Public Class frmImovel
                     txtComarca.Text = dados(3)
                     txtCartorio.Text = dados(4)
                     txtCodIncra.Text = dados(5)
-                    txtArea.Text = dados(6)
-                    txtAreaha.Text = dados(7)
-                    txtPerimetro.Text = dados(8)
+                    txtArea.Text = formataCasaDecimais(Double.Parse(dados(6)), CasaDec1)
+                    txtAreaha.Text = formataCasaDecimais(Double.Parse(dados(7)), CasaDec2)
+                    txtPerimetro.Text = formataCasaDecimais(Double.Parse(dados(8)), CasaDec3)
                     txtProprietario.Text = dados(9)
                     cboMC.Text = dados(10)
                     cboLongitude.Text = dados(11)
@@ -1093,8 +1120,7 @@ Public Class frmImovel
                             If divisa.Length > 0 Then
                                 If divisa = divisa2 Then
                                     If i > 0 Then
-                                        If My.Settings.Mdivisa = True Then
-                                            'negrito em Tipo de Divisa
+                                        If My.Settings.NchkNDiv = True Then 'negrito em Tipo de Divisa
                                             AddTxtBold(RichTxtMemo, ",")
                                         Else
                                             AddTxtRegular(RichTxtMemo, ",")
@@ -1102,8 +1128,7 @@ Public Class frmImovel
                                     End If
                                 Else
                                     AddTxtRegular(RichTxtMemo, ", " & My.Settings.Mdivisa)
-                                    If My.Settings.NchkNDiv = True Then
-                                        'negrito em Tipo de Divisa
+                                    If My.Settings.NchkNDiv = True Then 'negrito em Tipo de Divisa
                                         AddTxtBold(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(6).Value)
                                     Else
                                         AddTxtRegular(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(6).Value)
@@ -1298,6 +1323,40 @@ Public Class frmImovel
         End If
     End Sub
 
+    'Salvar o memorial gerado para um arquito RTF
+    Private Sub ToolStrBtnSaveMemo_Click(sender As Object, e As EventArgs) Handles ToolStrBtnSaveMemo.Click
+        'Verifica antes se tem algum texto a ser salvo. Caso estiver vazio, não abre a tela para salvar
+        If Len(RichTxtMemo.Text) = 0 Then
+            MessageBox.Show("Não há texto para ser salvo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            Dim arquivo As String
+            With SaveFileImovel
+                .Title = "Salvar Memorial Descritivo..."
+                .Filter = "Texto no formato Rich Text (*.rtf)|*.rtf"
+                .FilterIndex = 2
+                .RestoreDirectory = True
+            End With
+            If SaveFileImovel.ShowDialog() = DialogResult.OK Then
+                arquivo = SaveFileImovel.FileName
+                If [String].IsNullOrEmpty(arquivo) Then
+                    MessageBox.Show("Arquivo inválido", "Salvar Como", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    RichTxtMemo.SaveFile(arquivo)
+                End If
+            End If
+        End If
+    End Sub
+
+    'Copiar texto do memorial para a área de transferência
+    Private Sub ToolStrBtnCopy_Click(sender As Object, e As EventArgs) Handles ToolStrBtnCopy.Click
+        'Verifica antes se tem algum texto a ser salvo. Caso estiver vazio, não abre a tela para salvar
+        If Len(RichTxtMemo.Text) = 0 Then
+            MessageBox.Show("Não há texto para ser copiado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            Clipboard.SetDataObject(RichTxtMemo.Text, True)
+        End If
+    End Sub
+
     'Ao selecionar a Guia 'Memorial Descritivo', verifica se antes tem dados na tabela para gerar texto
     Private Sub TabControl1_Selected(sender As Object, e As TabControlEventArgs) Handles TabControl1.Selected
         If Me.TabControl1.SelectedTab.Text = "Memorial Descritivo" Then
@@ -1311,19 +1370,69 @@ Public Class frmImovel
 
     'Caso haja alteração nos dados do Imóvel
     Private Sub txtImovel_TextChanged(sender As Object, e As EventArgs) Handles txtProprietario.TextChanged, txtPerimetro.TextChanged, txtMunicipio.TextChanged, txtMatricula.TextChanged, txtImovel.TextChanged, txtDatum.TextChanged, txtComarca.TextChanged, txtCodIncra.TextChanged, txtCartorio.TextChanged, txtAreaha.TextChanged, txtArea.TextChanged, cboMC.TextChanged, cboLongitude.TextChanged, cboHemisferio.TextChanged, cboFuso.TextChanged
+        If frmPai.Initializing Then Return
         verifica_salvo(False, frmPai.NomeProjeto)
     End Sub
 
     'Caso haja alteração nos dados do Profissional
     Private Sub txtCidade_TextChanged(sender As Object, e As EventArgs) Handles txtRegistro.TextChanged, txtNomeProf.TextChanged, txtData.TextChanged, txtCidade.TextChanged
+        If frmPai.Initializing Then Return
         verifica_salvo(False, frmPai.NomeProjeto)
     End Sub
 
     'Caso haja alteração na tabela
     Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
+        If frmPai.Initializing Then Return
         verifica_salvo(False, frmPai.NomeProjeto)
     End Sub
 
+    'Abrir página de atualização
+    Private Sub lblVersaoAtual_Click(sender As Object, e As EventArgs) Handles lblVersaoAtual.Click
+        System.Diagnostics.Process.Start("http://byander.github.io/memorial_descritivo/")
+    End Sub
+
+    'Aumenta ou diminui as casas decimais conforme usuário clica no campo
+    Private Sub NumDecAream_ValueChanged(sender As Object, e As EventArgs) Handles NumDecAream.ValueChanged
+        Dim CasaDec As String = Convert.ToString(NumDecAream.Value)
+        If txtArea.Text <> "" Then
+            If Aream2 = 0 Then
+                Aream2 = Double.Parse(txtArea.Text)
+            End If
+            txtArea.Text = formataCasaDecimais(Aream2, CasaDec)
+        End If
+    End Sub
+
+    'Aumenta ou diminui as casas decimais conforme usuário clica no campo
+    Private Sub NumDecAreaha_ValueChanged(sender As Object, e As EventArgs) Handles NumDecAreaha.ValueChanged
+        Dim CasaDec As String = Convert.ToString(NumDecAreaha.Value)
+        If txtArea.Text <> "" Then
+            If Aream2 = 0 Then
+                Aream2 = Double.Parse(txtArea.Text)
+            End If
+            txtAreaha.Text = formataCasaDecimais(Aream2 / 10000, CasaDec)
+        End If
+    End Sub
+
+    'Aumenta ou diminui as casas decimais conforme usuário clica no campo
+    Private Sub NumDecPer_ValueChanged(sender As Object, e As EventArgs) Handles NumDecPer.ValueChanged
+        Dim CasaDec As String = Convert.ToString(NumDecPer.Value)
+        If txtArea.Text <> "" Then
+            If per = 0 Then
+                per = Double.Parse(txtPerimetro.Text)
+            End If
+            txtPerimetro.Text = formataCasaDecimais(per, CasaDec)
+        End If
+    End Sub
+
+    'Digitar apenas números nos campos Área (m²), Área (ha) e Perímetro
+    Private Sub txtArea_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPerimetro.KeyPress, txtAreaha.KeyPress, txtArea.KeyPress
+        Select Case e.KeyChar
+            Case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ",", vbBack
+                e.Handled = False
+            Case Else
+                e.Handled = True
+        End Select
+    End Sub
 End Class
 
 'Classe para colorir os botões do ToolStrip diferente

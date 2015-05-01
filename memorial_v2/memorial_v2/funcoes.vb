@@ -1,4 +1,6 @@
-﻿Public Class funcoes
+﻿Imports System.Net  'Para conexão com a internet para atualizar o programa
+
+Public Class funcoes
 
     'Mostrar no Título do form
     Public Shared Sub titulo_form(nomeProjeto As String, versao As String)
@@ -16,16 +18,6 @@
         Else
             titulo_form(nomeProjeto, versao)
         End If
-    End Sub
-
-    'Digitar apenas números em campos
-    Public Sub so_numeros(e As KeyPressEventArgs)
-        Select Case e.KeyChar
-            Case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ",", vbBack
-                e.Handled = False
-            Case Else
-                e.Handled = True
-        End Select
     End Sub
 
     'Na importação do Verificação do CSV, verificar caso a distância esteja nulo
@@ -155,6 +147,31 @@
         End Select
     End Function
 
+    'formatação de casas decimais no Memorial Descritivo para Área (m), Área (ha) e Perímetro (m)
+    Public Shared Function formataCasaDecimais(valor As Double, CasaDec As String) As String
+        Select Case CasaDec
+            Case "0"
+                Return valor.ToString("#,###.")
+                Exit Select
+            Case "1"
+                Return valor.ToString("#,###0.0")
+                Exit Select
+            Case "2"
+                Return valor.ToString("#,###0.00")
+                Exit Select
+            Case "3"
+                Return valor.ToString("#,###0.000")
+                Exit Select
+            Case "4"
+                Return valor.ToString("#,###0.0000")
+                Exit Select
+            Case Else
+                Return valor.ToString("#,###0.00")
+                '  return Convert.ToDouble(valor.ToString("#,###0.000"));
+                Exit Select
+        End Select
+    End Function
+
     'Adicionar texto regular
     Public Shared Sub AddTxtRegular(ByVal RTC As RichTextBox, ByVal text As String)
         With RTC
@@ -244,4 +261,59 @@
             .ToolStripBtnDel.Enabled = False
         End With
     End Sub
+
+    Public Shared Sub checaAtualizacao()
+        'Primeiro checa conexão se tem Internet
+        Dim flag As Boolean
+        Try
+            My.Computer.Network.Ping("www.google.com.br", 500)
+            flag = True
+        Catch ex As Exception
+            flag = False
+        End Try
+
+        'Caso houver a conexão
+        If flag = True Then
+            Dim web As New WebClient
+            Dim ultimaVersao As String = web.DownloadString("https://raw.githubusercontent.com/byander/memorial_descritivo/publish/versao.txt")
+            Dim versaoAtual As String = My.Application.Info.Version.ToString
+
+            If versaoAtual < ultimaVersao Then
+                If MessageBox.Show("Há uma nova versão disponível!" & vbNewLine & "Você deseja atualizar?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                    System.Diagnostics.Process.Start("http://byander.github.io/memorial_descritivo/")
+                Else
+                End If
+            Else
+                MessageBox.Show("O programa já está atualizado.", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
+    End Sub
+
+    'Checa atualizacao no Label do form filho
+    Public Shared Function checaAtualizacao2() As Boolean
+        Dim flag As Boolean
+        If checaConexao() = True Then
+            Dim web As New WebClient
+            Dim ultimaVersao As String = web.DownloadString("https://raw.githubusercontent.com/byander/memorial_descritivo/publish/versao.txt")
+            Dim versaoAtual As String = My.Application.Info.Version.ToString
+
+            If versaoAtual < ultimaVersao Then
+                flag = True
+            Else
+                flag = False
+            End If
+        End If
+        Return flag
+    End Function
+
+    'Checa conexão com internet no Label do form filho
+    Public Shared Function checaConexao() As Boolean
+        Try
+            My.Computer.Network.Ping("www.google.com.br", 500)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
 End Class

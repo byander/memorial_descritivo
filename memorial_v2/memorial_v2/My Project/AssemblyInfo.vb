@@ -9,11 +9,11 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Gerar Memorial Descritivo")> 
-<Assembly: AssemblyDescription("Gerador de Memorial Descritivo partir de coordenadas planimétricas")> 
+<Assembly: AssemblyDescription("Gerador automático de Memorial Descritivo de uma área, com base nas coordenadas cartesianas de seus vértices, confrontantes e tipos de divisas, calculando as distâncias e azimutes.")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("memorial_v2")> 
-<Assembly: AssemblyCopyright("Copyright © 2015")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyProduct("Memorial_V2")> 
+<Assembly: AssemblyCopyright("Direito Autorais © 2015")> 
+<Assembly: AssemblyTrademark("Anderson Roberto da Silva, Raphael Saldanha")> 
 
 <Assembly: ComVisible(False)>
 

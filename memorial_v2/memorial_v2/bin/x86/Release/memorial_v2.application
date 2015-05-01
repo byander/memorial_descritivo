@@ -7,14 +7,14 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="memorial_v2.exe.manifest" size="5401">
+    <dependentAssembly dependencyType="install" codebase="memorial_v2.exe.manifest" size="5093">
       <assemblyIdentity name="memorial_v2.exe" version="2.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rrfuN0P5+W0T9ioJT6LUEHQsG9U=</dsig:DigestValue>
+        <dsig:DigestValue>3Yx+6VxHlk32RWRe4chgZ09tBAs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

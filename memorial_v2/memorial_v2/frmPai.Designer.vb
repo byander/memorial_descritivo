@@ -107,6 +107,7 @@ Partial Class frmPai
         Me.ribBtnNovo.SmallImage = CType(resources.GetObject("ribBtnNovo.SmallImage"), System.Drawing.Image)
         Me.ribBtnNovo.Text = "Novo Projeto"
         Me.ribBtnNovo.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center
+        Me.ribBtnNovo.ToolTip = "Criar novo projeto (Ctrl+N)"
         '
         'RibbonButton1
         '
@@ -127,9 +128,11 @@ Partial Class frmPai
         Me.RibBtnAbre.MinimumSize = New System.Drawing.Size(82, 50)
         Me.RibBtnAbre.SmallImage = CType(resources.GetObject("RibBtnAbre.SmallImage"), System.Drawing.Image)
         Me.RibBtnAbre.Text = "Abrir projeto"
+        Me.RibBtnAbre.ToolTip = "Abrir um projeto salvo (Ctrl+A)"
         '
         'RibBtnSave
         '
+        Me.RibBtnSave.AltKey = ""
         Me.RibBtnSave.DropDownArrowSize = New System.Drawing.Size(10, 10)
         Me.RibBtnSave.Image = CType(resources.GetObject("RibBtnSave.Image"), System.Drawing.Image)
         Me.RibBtnSave.MaximumSize = New System.Drawing.Size(72, 50)
@@ -137,6 +140,7 @@ Partial Class frmPai
         Me.RibBtnSave.SmallImage = CType(resources.GetObject("RibBtnSave.SmallImage"), System.Drawing.Image)
         Me.RibBtnSave.Text = "Salvar"
         Me.RibBtnSave.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center
+        Me.RibBtnSave.ToolTip = "Salvar projeto (Ctrl+S)"
         '
         'RibBtnSaveAs
         '
@@ -146,6 +150,7 @@ Partial Class frmPai
         Me.RibBtnSaveAs.SmallImage = CType(resources.GetObject("RibBtnSaveAs.SmallImage"), System.Drawing.Image)
         Me.RibBtnSaveAs.Text = "Salvar Como"
         Me.RibBtnSaveAs.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center
+        Me.RibBtnSaveAs.ToolTip = "Salvar uma cópia do projeto"
         '
         'RibBtnSair
         '
@@ -155,6 +160,7 @@ Partial Class frmPai
         Me.RibBtnSair.SmallImage = CType(resources.GetObject("RibBtnSair.SmallImage"), System.Drawing.Image)
         Me.RibBtnSair.Text = "Sair"
         Me.RibBtnSair.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center
+        Me.RibBtnSair.ToolTip = "Sair do programa (Ctrl+W)"
         '
         'RibbonPanel2
         '
@@ -173,6 +179,7 @@ Partial Class frmPai
         Me.ribBtnImoNovo.SmallImage = CType(resources.GetObject("ribBtnImoNovo.SmallImage"), System.Drawing.Image)
         Me.ribBtnImoNovo.Text = "Formato CSV"
         Me.ribBtnImoNovo.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center
+        Me.ribBtnImoNovo.ToolTip = "Definilções do formato de arquivo CSV ou texto"
         '
         'RibbonButton3
         '
@@ -188,6 +195,7 @@ Partial Class frmPai
         Me.ribBtnDefTexto.SmallImage = CType(resources.GetObject("ribBtnDefTexto.SmallImage"), System.Drawing.Image)
         Me.ribBtnDefTexto.Text = "Texto Memorial"
         Me.ribBtnDefTexto.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center
+        Me.ribBtnDefTexto.ToolTip = "Definições gerais do Memorial Descritivo"
         '
         'RibbonPanel3
         '
@@ -206,6 +214,7 @@ Partial Class frmPai
         Me.RibArredCoo.Text = "Coordenadas:"
         Me.RibArredCoo.TextBoxText = "3"
         Me.RibArredCoo.TextBoxWidth = 20
+        Me.RibArredCoo.ToolTip = "Definição de casas decimais para as coordenadas cartesianas"
         Me.RibArredCoo.Value = "3"
         '
         'RibArredDist
@@ -215,6 +224,7 @@ Partial Class frmPai
         Me.RibArredDist.Text = "Distâncias:"
         Me.RibArredDist.TextBoxText = "2"
         Me.RibArredDist.TextBoxWidth = 20
+        Me.RibArredDist.ToolTip = "Definição de casas decimais para as distâncias"
         Me.RibArredDist.Value = "1"
         '
         'RibArredAzi
@@ -224,6 +234,7 @@ Partial Class frmPai
         Me.RibArredAzi.Text = "Azimutes:"
         Me.RibArredAzi.TextBoxText = "2"
         Me.RibArredAzi.TextBoxWidth = 20
+        Me.RibArredAzi.ToolTip = "Definição de casas decimais para os azimutes"
         Me.RibArredAzi.Value = "1"
         '
         'RibbonPanel4
@@ -249,6 +260,7 @@ Partial Class frmPai
         Me.ribBtnSobre.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium
         Me.ribBtnSobre.SmallImage = CType(resources.GetObject("ribBtnSobre.SmallImage"), System.Drawing.Image)
         Me.ribBtnSobre.Text = "Sobre"
+        Me.ribBtnSobre.ToolTip = "Sobre"
         '
         'ribBtnAjuda
         '
@@ -261,7 +273,8 @@ Partial Class frmPai
         Me.ribBtnAjuda.MinimumSize = New System.Drawing.Size(100, 20)
         Me.ribBtnAjuda.MinSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium
         Me.ribBtnAjuda.SmallImage = CType(resources.GetObject("ribBtnAjuda.SmallImage"), System.Drawing.Image)
-        Me.ribBtnAjuda.Text = "Ajuda"
+        Me.ribBtnAjuda.Text = "Manual Online"
+        Me.ribBtnAjuda.ToolTip = "Ajuda e tutoriais online"
         '
         'ribBtnAtualiza
         '
@@ -271,7 +284,8 @@ Partial Class frmPai
         Me.ribBtnAtualiza.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Medium
         Me.ribBtnAtualiza.MinimumSize = New System.Drawing.Size(100, 20)
         Me.ribBtnAtualiza.SmallImage = CType(resources.GetObject("ribBtnAtualiza.SmallImage"), System.Drawing.Image)
-        Me.ribBtnAtualiza.Text = "Atualizar"
+        Me.ribBtnAtualiza.Text = "Atualização"
+        Me.ribBtnAtualiza.ToolTip = "Verificar se há atualizações"
         '
         'AbreProjeto
         '
@@ -283,7 +297,9 @@ Partial Class frmPai
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(934, 602)
         Me.Controls.Add(Me.ribbon1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
+        Me.KeyPreview = True
         Me.MinimumSize = New System.Drawing.Size(950, 640)
         Me.Name = "frmPai"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

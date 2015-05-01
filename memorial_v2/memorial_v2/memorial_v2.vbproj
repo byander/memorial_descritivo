@@ -106,16 +106,11 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icone.ico</ApplicationIcon>
+    <ApplicationIcon>icone2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LumenWorks.Framework.IO">
-      <HintPath>..\..\LumenWorks.Framework.IO.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.Ribbon35">
@@ -124,7 +119,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -256,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icone.ico" />
+    <Content Include="icone2.ico" />
   </ItemGroup>
   <ItemGroup>
     <FileAssociation Include=".pmd">

@@ -106,8 +106,8 @@ Partial Class frmImovel
         Me.RichTxtMemo = New System.Windows.Forms.RichTextBox()
         Me.ToolStripMemorial = New System.Windows.Forms.ToolStrip()
         Me.ToolStrBtnGeraMemo = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStrBtnSaveMemo = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStrBtnCopy = New System.Windows.Forms.ToolStripButton()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileGridCsv = New System.Windows.Forms.SaveFileDialog()
         Me.SaveFileImovel = New System.Windows.Forms.SaveFileDialog()
@@ -995,7 +995,7 @@ Partial Class frmImovel
         'ToolStripMemorial
         '
         Me.ToolStripMemorial.AutoSize = False
-        Me.ToolStripMemorial.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStrBtnGeraMemo, Me.ToolStripButton3, Me.ToolStripButton4})
+        Me.ToolStripMemorial.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStrBtnGeraMemo, Me.ToolStrBtnSaveMemo, Me.ToolStrBtnCopy})
         Me.ToolStripMemorial.Location = New System.Drawing.Point(3, 3)
         Me.ToolStripMemorial.Name = "ToolStripMemorial"
         Me.ToolStripMemorial.Size = New System.Drawing.Size(1035, 50)
@@ -1007,28 +1007,29 @@ Partial Class frmImovel
         Me.ToolStrBtnGeraMemo.Image = CType(resources.GetObject("ToolStrBtnGeraMemo.Image"), System.Drawing.Image)
         Me.ToolStrBtnGeraMemo.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStrBtnGeraMemo.Name = "ToolStrBtnGeraMemo"
-        Me.ToolStrBtnGeraMemo.Size = New System.Drawing.Size(93, 47)
-        Me.ToolStrBtnGeraMemo.Text = "Gerar Memorial"
+        Me.ToolStrBtnGeraMemo.Size = New System.Drawing.Size(148, 47)
+        Me.ToolStrBtnGeraMemo.Text = "Gerar Memorial Descritivo"
         Me.ToolStrBtnGeraMemo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.ToolStrBtnGeraMemo.ToolTipText = "Gerar Memorial"
+        Me.ToolStrBtnGeraMemo.ToolTipText = "Gerar Memorial Descritivo"
         '
-        'ToolStripButton3
+        'ToolStrBtnSaveMemo
         '
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(71, 47)
-        Me.ToolStripButton3.Text = "Salvar texto"
-        Me.ToolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ToolStrBtnSaveMemo.Image = CType(resources.GetObject("ToolStrBtnSaveMemo.Image"), System.Drawing.Image)
+        Me.ToolStrBtnSaveMemo.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStrBtnSaveMemo.Name = "ToolStrBtnSaveMemo"
+        Me.ToolStrBtnSaveMemo.Size = New System.Drawing.Size(71, 47)
+        Me.ToolStrBtnSaveMemo.Text = "Salvar texto"
+        Me.ToolStrBtnSaveMemo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ToolStrBtnSaveMemo.ToolTipText = "Salvar Memorial num arquivo texto"
         '
-        'ToolStripButton4
+        'ToolStrBtnCopy
         '
-        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
-        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(184, 47)
-        Me.ToolStripButton4.Text = "Copiar para área de transferência"
-        Me.ToolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.ToolStrBtnCopy.Image = CType(resources.GetObject("ToolStrBtnCopy.Image"), System.Drawing.Image)
+        Me.ToolStrBtnCopy.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStrBtnCopy.Name = "ToolStrBtnCopy"
+        Me.ToolStrBtnCopy.Size = New System.Drawing.Size(184, 47)
+        Me.ToolStrBtnCopy.Text = "Copiar para área de transferência"
+        Me.ToolStrBtnCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'OpenFileDialog1
         '
@@ -1048,6 +1049,7 @@ Partial Class frmImovel
         Me.lblVersaoAtual.Size = New System.Drawing.Size(70, 22)
         Me.lblVersaoAtual.TabIndex = 5
         Me.lblVersaoAtual.Text = "Status"
+        Me.lblVersaoAtual.Visible = False
         '
         'frmImovel
         '
@@ -1057,6 +1059,7 @@ Partial Class frmImovel
         Me.Controls.Add(Me.lblVersaoAtual)
         Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.KeyPreview = True
         Me.Name = "frmImovel"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
@@ -1148,8 +1151,8 @@ Partial Class frmImovel
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
     Friend WithEvents ToolStripMemorial As System.Windows.Forms.ToolStrip
     Friend WithEvents ToolStrBtnGeraMemo As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStrBtnSaveMemo As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStrBtnCopy As System.Windows.Forms.ToolStripButton
     Friend WithEvents RichTxtMemo As System.Windows.Forms.RichTextBox
     Friend WithEvents txtCartorio As System.Windows.Forms.TextBox
     Friend WithEvents txtCodIncra As System.Windows.Forms.TextBox
