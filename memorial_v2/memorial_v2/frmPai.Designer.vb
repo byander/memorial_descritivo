@@ -72,7 +72,7 @@ Partial Class frmPai
         '
         Me.ribbon1.QuickAcessToolbar.Visible = False
         Me.ribbon1.RibbonTabFont = New System.Drawing.Font("Trebuchet MS", 9.0!)
-        Me.ribbon1.Size = New System.Drawing.Size(934, 116)
+        Me.ribbon1.Size = New System.Drawing.Size(969, 116)
         Me.ribbon1.TabIndex = 0
         Me.ribbon1.Tabs.Add(Me.RibbonTab1)
         Me.ribbon1.TabsMargin = New System.Windows.Forms.Padding(12, 2, 20, 0)
@@ -295,12 +295,12 @@ Partial Class frmPai
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(934, 602)
+        Me.ClientSize = New System.Drawing.Size(969, 602)
         Me.Controls.Add(Me.ribbon1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.KeyPreview = True
-        Me.MinimumSize = New System.Drawing.Size(950, 640)
+        Me.MinimumSize = New System.Drawing.Size(985, 640)
         Me.Name = "frmPai"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gerar Memorial Descritivo"

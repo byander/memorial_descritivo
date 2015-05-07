@@ -5,7 +5,7 @@ Imports System.Text
 Imports System.Version
 Imports System.Xml
 
-Imports memorial_v2.funcoes
+Imports gera_memorial.funcoes
 
 Public Class frmPai
 
@@ -577,5 +577,14 @@ Public Class frmPai
     'Verificar atualização
     Private Sub ribBtnAtualiza_Click(sender As Object, e As EventArgs) Handles ribBtnAtualiza.Click
         checaAtualizacao()
+    End Sub
+
+    'Entrar no site
+    Private Sub ribBtnAjuda_Click(sender As Object, e As EventArgs) Handles ribBtnAjuda.Click
+        If checaConexao() = True Then
+            System.Diagnostics.Process.Start("http://byander.github.io/memorial_descritivo/#manual")
+        Else
+            MessageBox.Show("Verifique se há conexão com a Internet.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
 End Class

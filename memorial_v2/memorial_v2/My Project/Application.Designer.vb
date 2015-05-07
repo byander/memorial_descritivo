@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.memorial_v2.frmPai
+            Me.MainForm = Global.gera_memorial.frmPai
         End Sub
     End Class
 End Namespace

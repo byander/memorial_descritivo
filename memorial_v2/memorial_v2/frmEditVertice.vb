@@ -1,4 +1,4 @@
-﻿Imports memorial_v2.funcoes
+﻿Imports gera_memorial.funcoes
 
 Public Class frmEditVertice
 

@@ -639,10 +639,10 @@ Namespace My
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Module MySettingsProperty
         
-        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.memorial_v2.My.MySettings
+        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")> _
+        Friend ReadOnly Property Settings() As Global.gera_memorial.My.MySettings
             Get
-                Return Global.memorial_v2.My.MySettings.Default
+                Return Global.gera_memorial.My.MySettings.Default
             End Get
         End Property
     End Module

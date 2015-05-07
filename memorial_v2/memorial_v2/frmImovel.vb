@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 Imports System.Text
-Imports memorial_v2.funcoes
+Imports gera_memorial.funcoes
 
 Imports System.Globalization
 Imports System.Threading
@@ -824,6 +824,36 @@ Public Class frmImovel
     Private Sub ToolStrBtnGeraMemo_Click(sender As Object, e As EventArgs) Handles ToolStrBtnGeraMemo.Click
         If (DataGridView1.Rows.Count > 0) Then
 
+            'Variáveis
+            Dim ponto As String = Nothing 'Nome ponto
+            Dim X As String = Nothing 'Coodernada X
+            Dim Y As String = Nothing 'Coodernada Y
+            Dim azi As String = Nothing 'Azimute Inicial
+            Dim dist As String = Nothing 'Distância Inicial
+            Dim nome As String = Nothing 'Confrontante
+            Dim nome2 As String = Nothing 'Confrontante (para verificar duplicidade)
+            Dim divisa As String = Nothing 'Divisa
+            Dim divisa2 As String = Nothing 'Divisa (para verificar duplicidade)
+
+
+            'Primeiro percorre por todos os pontos e verifica se na tabela tem os azimutes e distâncias
+            'Se algum ponto não conter, antes será calculados os Azimutes e distâncias
+            For i As Integer = 0 To DataGridView1.Rows.Count - 1
+
+                'Azimute
+                azi = Convert.ToString(DataGridView1.Rows(i).Cells(4).Value)
+                'Distância
+                dist = Convert.ToString(DataGridView1.Rows(i).Cells(3).Value)
+
+                'Caso achar algum vazio, calcula os azimutes e distâncias e sair do laço
+                If azi = "" Or dist = "" Then
+                    ToolStrAzimute_Click(sender, e)
+                    azi = Nothing
+                    dist = Nothing
+                    Exit For
+                End If
+            Next
+
             RichTxtMemo.Text = ""
             RichTxtMemo.Font = New Font("Calibri", 11)
 
@@ -1015,17 +1045,6 @@ Public Class frmImovel
             'Parágrafo
             AddTxtRegular(RichTxtMemo, vbTab & My.Settings.Minicio & " ")
 
-            'Variáveis
-            Dim ponto As String = Nothing 'Nome ponto
-            Dim X As String = Nothing 'Coodernada X
-            Dim Y As String = Nothing 'Coodernada Y
-            Dim azi As String = Nothing 'Azimute Inicial
-            Dim dist As String = Nothing 'Distância Inicial
-            Dim nome As String = Nothing 'Confrontante
-            Dim nome2 As String = Nothing 'Confrontante (para verificar duplicidade)
-            Dim divisa As String = Nothing 'Divisa
-            Dim divisa2 As String = Nothing 'Divisa (para verificar duplicidade)
-
             'Percorre os pontos
             For i As Integer = 0 To DataGridView1.Rows.Count - 1
 
@@ -1069,22 +1088,22 @@ Public Class frmImovel
                 End If
 
                 'Confrontante
-                nome = DataGridView1.Rows(i).Cells(5).Value
+                nome = Convert.ToString(DataGridView1.Rows(i).Cells(5).Value)
 
                 'Divisa
-                divisa = DataGridView1.Rows(i).Cells(6).Value
+                divisa = Convert.ToString(DataGridView1.Rows(i).Cells(6).Value)
 
                 If i < DataGridView1.Rows.Count Then
                     If i = 0 Then
-                        nome2 = DataGridView1.Rows(i).Cells(5).Value
-                        divisa2 = DataGridView1.Rows(i).Cells(6).Value
+                        nome2 = Convert.ToString(DataGridView1.Rows(i).Cells(5).Value)
+                        divisa2 = Convert.ToString(DataGridView1.Rows(i).Cells(6).Value)
                     Else
-                        nome2 = DataGridView1.Rows(i - 1).Cells(5).Value
-                        divisa2 = DataGridView1.Rows(i - 1).Cells(6).Value
+                        nome2 = Convert.ToString(DataGridView1.Rows(i - 1).Cells(5).Value)
+                        divisa2 = Convert.ToString(DataGridView1.Rows(i - 1).Cells(6).Value)
                     End If
                 Else
-                    nome2 = DataGridView1.Rows(0).Cells(5).Value
-                    divisa2 = DataGridView1.Rows(0).Cells(6).Value
+                    nome2 = Convert.ToString(DataGridView1.Rows(0).Cells(5).Value)
+                    divisa2 = Convert.ToString(DataGridView1.Rows(0).Cells(6).Value)
                 End If
 
                 If nome.Length > 0 Then
@@ -1095,20 +1114,20 @@ Public Class frmImovel
 
                             If My.Settings.NchkNCon = True Then
                                 'negrito em Confrontante
-                                AddTxtBold(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(5).Value)
+                                AddTxtBold(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(5).Value))
                                 AddTxtRegular(RichTxtMemo, ", ")
                             Else
-                                AddTxtRegular(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(5).Value)
+                                AddTxtRegular(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(5).Value))
                                 AddTxtRegular(RichTxtMemo, ", ")
                             End If
 
                             If My.Settings.NchkNDiv = True Then
                                 'negrito em Tipo de Divisa
                                 AddTxtRegular(RichTxtMemo, My.Settings.Mdivisa)
-                                AddTxtBold(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(6).Value)
+                                AddTxtBold(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(6).Value))
                             Else
                                 AddTxtRegular(RichTxtMemo, My.Settings.Mdivisa)
-                                AddTxtRegular(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(6).Value)
+                                AddTxtRegular(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(6).Value))
                             End If
                         End If
                     End If
@@ -1129,9 +1148,9 @@ Public Class frmImovel
                                 Else
                                     AddTxtRegular(RichTxtMemo, ", " & My.Settings.Mdivisa)
                                     If My.Settings.NchkNDiv = True Then 'negrito em Tipo de Divisa
-                                        AddTxtBold(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(6).Value)
+                                        AddTxtBold(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(6).Value))
                                     Else
-                                        AddTxtRegular(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(6).Value)
+                                        AddTxtRegular(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(6).Value))
                                     End If
                                 End If
                             End If
@@ -1139,20 +1158,20 @@ Public Class frmImovel
                             AddTxtRegular(RichTxtMemo, "; " & My.Settings.Mconfronto)
                             If My.Settings.NchkNCon = True Then
                                 'negrito em Confrontante
-                                AddTxtBold(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(5).Value)
+                                AddTxtBold(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(5).Value))
                                 AddTxtRegular(RichTxtMemo, ", ")
                             Else
-                                AddTxtRegular(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(5).Value)
+                                AddTxtRegular(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(5).Value))
                                 AddTxtRegular(RichTxtMemo, ", ")
                             End If
                             'Nome
                             If My.Settings.NchkNDiv = True Then
                                 'negrito em Tipo de Divisa
                                 AddTxtRegular(RichTxtMemo, My.Settings.Mdivisa)
-                                AddTxtBold(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(6).Value)
+                                AddTxtBold(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(6).Value))
                             Else
                                 AddTxtRegular(RichTxtMemo, My.Settings.Mdivisa)
-                                AddTxtRegular(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(6).Value)
+                                AddTxtRegular(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(6).Value))
                             End If
                         End If
                     Else
@@ -1160,17 +1179,17 @@ Public Class frmImovel
                         AddTxtRegular(RichTxtMemo, "; " & My.Settings.Mconfronto)
 
                         If My.Settings.NchkNCon = True Then
-                            AddTxtBold(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(5).Value)
+                            AddTxtBold(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(5).Value))
                         Else
-                            AddTxtRegular(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(5).Value)
+                            AddTxtRegular(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(5).Value))
                         End If
 
                         'negrito em Tipo de Divisa - coloquei em 28/08/14
                         AddTxtRegular(RichTxtMemo, ", " & My.Settings.Mdivisa)
                         If My.Settings.NchkNDiv = True Then
-                            AddTxtBold(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(6).Value)
+                            AddTxtBold(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(6).Value))
                         Else
-                            AddTxtRegular(RichTxtMemo, " " & DataGridView1.Rows(i).Cells(6).Value)
+                            AddTxtRegular(RichTxtMemo, " " & Convert.ToString(DataGridView1.Rows(i).Cells(6).Value))
                         End If
                     End If
                 End If
