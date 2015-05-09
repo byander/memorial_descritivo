@@ -15,6 +15,12 @@
         <script src="js/jquery.scrolly.min.js"></script>
         <script src="js/skel.min.js"></script>
         <script src="js/init.js"></script>
+
+        <!-- Link para o plugin prettyPhoto  -->
+        <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+
         <noscript>
         <link rel="stylesheet" href="css/skel.css" />
         <link rel="stylesheet" href="css/style.css" />
@@ -41,11 +47,18 @@
     </head>
     <body>
 
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function () {
+                $("a[rel^='prettyPhoto']").prettyPhoto();
+                social_tools: '<div>merda</div>';
+            });
+        </script>
+
         <!-- Nav -->
         <nav id="nav">
             <ul class="container">
                 <li><a href="#top">Topo</a></li>
-                <li><a href="#manual">Manual</a></li>
+                <li><a href="#manual">Tutorial</a></li>
                 <li><a href="#contact">Contato</a></li>
                 <li><a href="#comentario">Deixe seu comentário</a></li>
             </ul>
@@ -63,8 +76,32 @@
                             <h1>Gerar Memorial Descritivo</h1>
                         </header>
                         <p>O software <strong>Gera Memorial</strong> foi desenvolvido para criar Memorial Descritivo de uma área, com base nas coordenadas cartesianas de seus vértices, confrontantes e tipos de divisas, calculando as distâncias e azimutes.</p>
-                        <a href="#work" class="button big scrolly">Download do programa</a>
-                        <a href="#work" class="button big scrolly">Página do projeto</a>
+
+                        <a href="https://github.com/byander/memorial_descritivo/blob/publish/Instalar%20Gera%20Memorial.msi?raw=true" class="button big scrolly">Download do software</a>
+                        <a href="https://github.com/byander/memorial_descritivo/blob/publish/Gera%20Memorial%20-%20Portable.rar?raw=true" class="button big scrolly">Download Versão Portable</a>
+
+                        <p></p>
+                        <h6><strong>Novidades da versão 2.0.0.0:</strong></h6>
+                        <nav id="nov">
+                            <ul class="novlista">
+                                <li>Visual renovado, com design mais atual!</li>
+                                <li>Disponibilidade de versão portable, ou seja, sem a necessidade de instalação.</li>
+                                <li>Importação de pontos mais simplificado.</li>
+                                <li>Agora é possível colar dados diretamente de uma planilha Excel!</li>
+                                <li>Opção de salvar o projeto, para abrir e finalizar num outro momento!</li>
+                                <li>Correções de pequenos erros de instalação.</li>
+                            </ul>
+                        </nav>
+                        
+                        <h6><strong>Requisitos:</strong></h6>
+                        <nav id="nov">
+                            
+                            É necessário ter instalado o Microsoft .NET Framework 4. Caso não tenha, o mesmo pode ser baixado no  
+                            <strong> <a href="http://www.microsoft.com/pt-br/download/details.aspx?id=17851" target="_blank">site da Microsoft.</a></strong> 
+                       
+                        </nav>
+                        <p></p>
+                        <a href="https://github.com/byander/memorial_descritivo" target = "_blank" class="button big scrolly">Página do projeto</a>
                     </div>
                 </div>
             </article>
@@ -74,38 +111,53 @@
         <div class="wrapper style2">
             <article id="manual">
                 <header>
-                    <h2>Manual</h2>
-                    <p>Odio turpis amet sed consequat eget posuere consequat.</p>
+                    <h2>Videos tutoriais</h2>
+                    <p>Abaixo seguem alguns videos para auxiliar no uso do software.</p>
                 </header>
                 <div class="container">
                     <div class="row">
                         <div class="4u">
-                            <section class="box style1">
-                                <span class="icon featured fa-comments-o"></span>
-                                <h3>Consequat lorem</h3>
-                                <p>Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore.</p>
+                            <section class="box style2">
+                                <a href="https://youtu.be/m823qsGjZOA" rel="prettyPhoto" title=""><img src="https://i.ytimg.com/vi/m823qsGjZOA/1.jpg?time=1431043231329" alt="" width="300" /></a>
+                                <p>Importação de pontos no formato brasileiro, ou seja, quando o separador decimal é vírgula.</p>
                             </section>
                         </div>
                         <div class="4u">
-                            <section class="box style1">
-                                <span class="icon featured fa-camera-retro"></span>
-                                <h3>Lorem dolor tempus</h3>
-                                <p>Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore.</p>
+                            <section class="box style2">
+                                <a href="https://youtu.be/l_uuwyGFI0M" rel="prettyPhoto" title=""><img src="https://i.ytimg.com/vi/l_uuwyGFI0M/3.jpg?time=1431043302056" alt="" width="300" /></a>
+                                <p>Importação de pontos no formato americano, ou seja, quando o separador decimal é ponto.</p>
                             </section>
                         </div>
                         <div class="4u">
-                            <section class="box style1">
-                                <span class="icon featured fa-thumbs-o-up"></span>
-                                <h3>Feugiat posuere</h3>
-                                <p>Ornare nulla proin odio consequat sapien vestibulum ipsum primis sed amet consequat lorem dolore.</p>
+                            <section class="box style2">
+                                <a href="https://youtu.be/-Kb-TPANqeY" rel="prettyPhoto" title=""><img src="https://i.ytimg.com/vi/-Kb-TPANqeY/1.jpg?time=1431044982899" alt="" width="300" /></a>
+                                <p>Colar dados de uma planilha Excel, sem a necessidade de exportar a tabela para um arquivo CSV.</p>
                             </section>
                         </div>
                     </div>
                 </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="4u">
+                            <section class="box style2">
+                                <a href="https://youtu.be/hyrp7lt8JEE" rel="prettyPhoto" title=""><img src="https://i.ytimg.com/vi/hyrp7lt8JEE/2.jpg?time=1431125848505" alt="" width="300" /></a>
+                                <p>Salvando um projeto.</p>
+                            </section>
+                        </div>
+                        <div class="4u">
+                            <section class="box style2">
+                                <a href="https://youtu.be/YkFVXp3DR3M" rel="prettyPhoto" title=""><img src="https://i.ytimg.com/vi/YkFVXp3DR3M/3.jpg?time=1431127286309" alt="" width="300" /></a>
+                                <p>Editando dados da tabela.</p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!--
                 <footer>
                     <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
                     <a href="#portfolio" class="button big scrolly">See some of my recent work</a>
                 </footer>
+                -->
             </article>
         </div>
 
