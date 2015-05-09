@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="gera_memorial.exe" size="376720">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="gera_memorial.exe" size="377232">
       <assemblyIdentity name="gera_memorial" version="2.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VKdgYLa0hNLuv4LFy4x/QRJU100=</dsig:DigestValue>
+        <dsig:DigestValue>yJxfiZvChoQSj8/6uJeRbHj/IzI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

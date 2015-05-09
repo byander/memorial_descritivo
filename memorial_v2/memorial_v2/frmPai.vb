@@ -9,6 +9,7 @@ Imports gera_memorial.funcoes
 
 Public Class frmPai
 
+    'Variável que contém o caminho e nome do projeto completo
     Public Shared Property arqProjeto() As String
         Get
             Return m_arqProjeto
@@ -19,6 +20,7 @@ Public Class frmPai
     End Property
     Public Shared m_arqProjeto As String
 
+    'Variável que contém apenas o nome do projeto, sem caminho e nem a extensão
     Public Shared Property NomeProjeto() As String
         Get
             Return m_NomeProjeto
@@ -138,7 +140,6 @@ Public Class frmPai
 
     'Salvar Projeto - Abrir janela para novo arquivo
     Public Sub arquivodoProjeto()
-        Dim arquivo As String
         With SaveProjeto
             .Title = "Salvar Projeto"
             .Filter = "Projeto Memorial Descritivo (*.pmd)|*.pmd"
@@ -146,18 +147,19 @@ Public Class frmPai
             .RestoreDirectory = True
         End With
         If SaveProjeto.ShowDialog() = DialogResult.OK Then
-            arquivo = SaveProjeto.FileName
-            If [String].IsNullOrEmpty(arquivo) Then
+            arqProjeto = SaveProjeto.FileName
+            NomeProjeto = Path.GetFileNameWithoutExtension(arqProjeto)
+            If [String].IsNullOrEmpty(arqProjeto) Then
                 MessageBox.Show("Arquivo inválido", "Salvar Como", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-                XMlSaveImovelDados(arquivo)
+                XMlSaveImovelDados(arqProjeto)
+                verifica_salvo(True, NomeProjeto)
             End If
         End If
     End Sub
 
     'Projeto Salvar Como
     Private Sub RibBtnSaveAs_Click(sender As Object, e As EventArgs) Handles RibBtnSaveAs.Click
-        Dim arquivo As String
         With SaveProjeto
             .Title = "Salvar Cópia do Projeto"
             .Filter = "Projeto Memorial Descritivo (*.pmd)|*.pmd"
@@ -166,11 +168,11 @@ Public Class frmPai
             .FileName = NomeProjeto
         End With
         If SaveProjeto.ShowDialog() = DialogResult.OK Then
-            arquivo = SaveProjeto.FileName
-            If [String].IsNullOrEmpty(arquivo) Then
+            arqProjeto = SaveProjeto.FileName
+            If [String].IsNullOrEmpty(arqProjeto) Then
                 MessageBox.Show("Arquivo inválido", "Salvar Como", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-                XMlSaveImovelDados(arquivo)
+                XMlSaveImovelDados(arqProjeto)
             End If
         End If
     End Sub
@@ -279,13 +281,13 @@ Public Class frmPai
             writer.WriteStartElement("vertices")
             Dim col0, col1, col2, col3, col4, col5, col6 As String
             For Each row As DataGridViewRow In frmImovel.DataGridView1.Rows
-                col0 = row.Cells(0).Value
-                col1 = row.Cells(1).Value
-                col2 = row.Cells(2).Value
+                col0 = row.Cells(0).Value.ToString
+                col1 = row.Cells(1).Value.ToString
+                col2 = row.Cells(2).Value.ToString
                 col3 = row.Cells(3).Value.ToString
-                col4 = row.Cells(4).Value
-                col5 = row.Cells(5).Value
-                col6 = row.Cells(6).Value
+                col4 = row.Cells(4).Value.ToString
+                col5 = row.Cells(5).Value.ToString
+                col6 = row.Cells(6).Value.ToString
                 XMlSaveDadosTabela(col0, col1, col2, col3, col4, col5, col6, writer)
             Next
             writer.WriteEndElement() 'Fim 'vertices'

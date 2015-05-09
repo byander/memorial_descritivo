@@ -363,18 +363,25 @@ Public Class frmImovel
                             row("Vértice") = dados(0)
                             row("Este") = dados(1)
                             row("Norte") = dados(2)
-                            row("Distância") = dados(3)
+                            row("Distância") = veri_dist(dados(3))
                         Case Is = 5
                             row("Vértice") = dados(0)
                             row("Este") = dados(1)
                             row("Norte") = dados(2)
-                            row("Distância") = dados(3)
+                            row("Distância") = veri_dist(dados(3))
                             row("Azimute") = dados(4)
+                        Case Is = 6
+                            row("Vértice") = dados(0)
+                            row("Este") = dados(1)
+                            row("Norte") = dados(2)
+                            row("Distância") = veri_dist(dados(3))
+                            row("Azimute") = dados(4)
+                            row("Confrontante") = dados(5)
                         Case Is = 7
                             row("Vértice") = dados(0)
                             row("Este") = dados(1)
                             row("Norte") = dados(2)
-                            row("Distância") = dados(3)
+                            row("Distância") = veri_dist(dados(3))
                             row("Azimute") = dados(4)
                             row("Confrontante") = dados(5)
                             row("Divisa") = dados(6)
@@ -402,6 +409,18 @@ Public Class frmImovel
             MessageBox.Show("Erro ao colar dados. Verifique se a ordem das colunas está correta. A coluna das coordenadas e distância devem ser numéricas.", "Erro.", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+    'Função para auxilio para colar os dados do excel
+    'Ao colar os dados, a coluna distância não pode estar vazia caso o usuário desejar colar os confrontantes e divisas
+    Function veri_dist(valor As String)
+        Dim dist As Double
+        If valor = "" Then
+            dist = 0
+        Else
+            dist = Convert.ToDouble(valor)
+        End If
+        Return dist
+    End Function
 
     'Exportar a tabela de dados para texto
     Private Sub ToolStripBtnExpCSV_Click(sender As Object, e As EventArgs) Handles ToolStripBtnExpCSV.Click
