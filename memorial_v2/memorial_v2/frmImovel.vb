@@ -354,33 +354,20 @@ Public Class frmImovel
                 If tArr(i) <> "" Then
                     row = dt.NewRow()
                     dados = tArr(i).Split(CChar(vbTab))
+                    row("Vértice") = dados(0).TrimStart(vbLf)
+                    row("Este") = dados(1)
+                    row("Norte") = dados(2)
                     Select Case dados.Count
-                        Case Is = 3
-                            row("Vértice") = dados(0)
-                            row("Este") = dados(1)
-                            row("Norte") = dados(2)
                         Case Is = 4
-                            row("Vértice") = dados(0)
-                            row("Este") = dados(1)
-                            row("Norte") = dados(2)
                             row("Distância") = veri_dist(dados(3))
                         Case Is = 5
-                            row("Vértice") = dados(0)
-                            row("Este") = dados(1)
-                            row("Norte") = dados(2)
                             row("Distância") = veri_dist(dados(3))
                             row("Azimute") = dados(4)
                         Case Is = 6
-                            row("Vértice") = dados(0)
-                            row("Este") = dados(1)
-                            row("Norte") = dados(2)
                             row("Distância") = veri_dist(dados(3))
                             row("Azimute") = dados(4)
                             row("Confrontante") = dados(5)
                         Case Is = 7
-                            row("Vértice") = dados(0)
-                            row("Este") = dados(1)
-                            row("Norte") = dados(2)
                             row("Distância") = veri_dist(dados(3))
                             row("Azimute") = dados(4)
                             row("Confrontante") = dados(5)
