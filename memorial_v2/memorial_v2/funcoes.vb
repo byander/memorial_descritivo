@@ -292,19 +292,23 @@ Public Class funcoes
     'Checa atualizacao no Label do form filho
     Public Shared Function checaAtualizacao2() As Boolean
         Dim flag As Boolean
-        If checaConexao() = True Then
-            Dim web As New WebClient
-            Dim ultimaVersao As String = web.DownloadString("https://raw.githubusercontent.com/byander/memorial_descritivo/publish/versao.txt")
-            Dim versaoAtual As String = My.Application.Info.Version.ToString
+        Try
+            If checaConexao() = True Then
+                Dim web As New WebClient
+                Dim ultimaVersao As String = web.DownloadString("https://raw.githubusercontent.com/byander/memorial_descritivo/publish/versao.txt")
+                Dim versaoAtual As String = My.Application.Info.Version.ToString
 
-            'Se flag = True, é porque tem atualização disponível
-            If versaoAtual < ultimaVersao Then
-                flag = True
-            Else
-                flag = False
+                'Se flag = True, é porque tem atualização disponível
+                If versaoAtual < ultimaVersao Then
+                    flag = True
+                Else
+                    flag = False
+                End If
             End If
-        End If
-        Return flag
+            Return flag
+        Catch ex As Exception
+            Return False
+        End Try
     End Function
 
     'Checa conexão com internet no Label do form filho
