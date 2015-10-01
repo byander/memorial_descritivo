@@ -25,6 +25,7 @@ Partial Class frmImovel
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmImovel))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.cboFuso = New System.Windows.Forms.ComboBox()
         Me.cboMC = New System.Windows.Forms.ComboBox()
@@ -151,6 +152,7 @@ Partial Class frmImovel
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Button1)
         Me.TabPage1.Controls.Add(Me.GroupBox3)
         Me.TabPage1.Controls.Add(Me.GroupBox2)
         Me.TabPage1.Controls.Add(Me.GroupBox1)
@@ -163,6 +165,15 @@ Partial Class frmImovel
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Detalhes do Imóvel"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(159, 439)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -1181,4 +1192,5 @@ Partial Class frmImovel
     Friend WithEvents NumDecAreaha As System.Windows.Forms.NumericUpDown
     Friend WithEvents NumDecAream As System.Windows.Forms.NumericUpDown
     Friend WithEvents ToolStrBtnLoadProf As System.Windows.Forms.ToolStripButton
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

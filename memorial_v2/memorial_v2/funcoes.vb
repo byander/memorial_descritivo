@@ -263,6 +263,7 @@ Public Class funcoes
     End Sub
 
     Public Shared Sub checaAtualizacao()
+
         'Primeiro checa conexão se tem Internet
         Dim flag As Boolean
         Try
@@ -275,17 +276,25 @@ Public Class funcoes
         'Caso houver a conexão
         If flag = True Then
             Dim web As New WebClient
-            Dim ultimaVersao As String = web.DownloadString("https://raw.githubusercontent.com/byander/memorial_descritivo/publish/versao.txt")
-            Dim versaoAtual As String = My.Application.Info.Version.ToString
+            Dim ultimaVersao As String
+            Dim versaoAtual As String
 
-            If versaoAtual < ultimaVersao Then
-                If MessageBox.Show("Há uma nova versão disponível!" & vbNewLine & "Você deseja atualizar?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                    System.Diagnostics.Process.Start("http://byander.github.io/memorial_descritivo/")
+            Try
+                ultimaVersao = web.DownloadString("https://raw.githubusercontent.com/byander/memorial_descritivo/publish/versao.txt")
+                versaoAtual = My.Application.Info.Version.ToString
+
+                If versaoAtual < ultimaVersao Then
+                    If MessageBox.Show("Há uma nova versão disponível!" & vbNewLine & "Você deseja atualizar?", "Atualização", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                        System.Diagnostics.Process.Start("http://byander.github.io/memorial_descritivo/")
+                    Else
+                    End If
                 Else
+                    MessageBox.Show("O programa já está atualizado.", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
-            Else
-                MessageBox.Show("O programa já está atualizado.", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
+            Catch ex As Exception
+                MessageBox.Show("Não foi possível verificar a atualização. Pode ser que sua conexão tenha um Proxy configurado. " & vbNewLine & _
+                                "Entre no site do projeto: http://byander.github.io/memorial_descritivo para verificar se há atualizações!", "Atualização", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Try
         End If
     End Sub
 

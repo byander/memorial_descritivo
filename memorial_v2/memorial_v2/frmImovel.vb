@@ -43,14 +43,17 @@ Public Class frmImovel
         'Configurações regionais
         Thread.CurrentThread.CurrentCulture = New CultureInfo("pt-BR")
 
-        'Versão no Label
-        If checaAtualizacao2() = True Then
-            Dim web As New WebClient
-            Dim ultimaVersao As String = web.DownloadString("https://raw.githubusercontent.com/byander/memorial_descritivo/publish/versao.txt")
-            lblVersaoAtual.Visible = True
-            lblVersaoAtual.Text = "Há uma nova versão disponível. Clique aqui para download."
-            lblVersaoAtual.Text = lblVersaoAtual.Text & vbNewLine & "Sua versão: " & frmPai.ProductVersion & "       Nova versão: " & ultimaVersao
-        End If
+        Try
+            'Versão no Label
+            If checaAtualizacao2() = True Then
+                Dim web As New WebClient
+                Dim ultimaVersao As String = web.DownloadString("https://raw.githubusercontent.com/byander/memorial_descritivo/publish/versao.txt")
+                lblVersaoAtual.Visible = True
+                lblVersaoAtual.Text = "Há uma nova versão disponível. Clique aqui para download."
+                lblVersaoAtual.Text = lblVersaoAtual.Text & vbNewLine & "Sua versão: " & frmPai.ProductVersion & "       Nova versão: " & ultimaVersao
+            End If
+        Catch ex As Exception
+        End Try
 
         Me.ControlBox = False
         Me.WindowState = FormWindowState.Maximized
@@ -1457,6 +1460,17 @@ Public Class frmImovel
             Case Else
                 e.Handled = True
         End Select
+    End Sub
+
+    'Teste, apagar depois
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim p = WebRequest.GetSystemWebProxy
+        If (p.GetProxy(New Uri("http://www.google.com")).Equals(New Uri("http://www.google.com"))) Then
+            MessageBox.Show("sem proxy")
+        Else
+            MessageBox.Show("proxy ativado")
+        End If
+
     End Sub
 End Class
 

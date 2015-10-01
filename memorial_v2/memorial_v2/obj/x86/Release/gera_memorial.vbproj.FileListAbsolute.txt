@@ -29,7 +29,6 @@ D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\bi
 D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\bin\x86\Release\gera_memorial.pdb
 D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\bin\x86\Release\gera_memorial.xml
 D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\bin\x86\Release\System.Windows.Forms.Ribbon35.dll
-D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\obj\x86\Release\gera_memorial.vbprojResolveAssemblyReference.cache
 D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\obj\x86\Release\gera_memorial.frmDefMemorial.resources
 D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\obj\x86\Release\gera_memorial.frmEditVertice.resources
 D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\obj\x86\Release\gera_memorial.frmFormatoCSV.resources
@@ -40,3 +39,5 @@ D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\ob
 D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\obj\x86\Release\gera_memorial.vbproj.GenerateResource.Cache
 D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\obj\x86\Release\gera_memorial.exe.manifest
 D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\obj\x86\Release\gera_memorial.application
+D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\bin\x86\Release\gera_memorial.exe.CodeAnalysisLog.xml
+D:\_Projetos_VisualStudio\_GitHUB\memorial_descritivo\memorial_v2\memorial_v2\bin\x86\Release\gera_memorial.exe.lastcodeanalysissucceeded
