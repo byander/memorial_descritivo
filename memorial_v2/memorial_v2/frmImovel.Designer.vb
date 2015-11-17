@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmImovel
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,11 @@ Partial Class frmImovel
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmImovel))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.cboFuso = New System.Windows.Forms.ComboBox()
         Me.cboMC = New System.Windows.Forms.ComboBox()
@@ -152,7 +151,6 @@ Partial Class frmImovel
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.Button1)
         Me.TabPage1.Controls.Add(Me.GroupBox3)
         Me.TabPage1.Controls.Add(Me.GroupBox2)
         Me.TabPage1.Controls.Add(Me.GroupBox1)
@@ -165,15 +163,6 @@ Partial Class frmImovel
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Detalhes do Imóvel"
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(159, 439)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -964,7 +953,7 @@ Partial Class frmImovel
         Me.ToolStripBtnDel.Size = New System.Drawing.Size(49, 47)
         Me.ToolStripBtnDel.Text = "Apagar"
         Me.ToolStripBtnDel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.ToolStripBtnDel.ToolTipText = "Apagar um ou mais vértices. É necessário selecionar um ou mais linhas para apagar" & _
+        Me.ToolStripBtnDel.ToolTipText = "Apagar um ou mais vértices. É necessário selecionar um ou mais linhas para apagar" &
     "."
         '
         'ToolStripSeparator2
@@ -1192,5 +1181,4 @@ Partial Class frmImovel
     Friend WithEvents NumDecAreaha As System.Windows.Forms.NumericUpDown
     Friend WithEvents NumDecAream As System.Windows.Forms.NumericUpDown
     Friend WithEvents ToolStrBtnLoadProf As System.Windows.Forms.ToolStripButton
-    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

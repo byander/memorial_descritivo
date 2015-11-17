@@ -4,7 +4,7 @@
   <description asmv2:iconFile="icone2.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="gera_memorial" version="2.0.0.2" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="gera_memorial" version="2.0.0.3" language="neutral" processorArchitecture="x86" />
     <commandLine file="gera_memorial.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="gera_memorial.exe" size="363520">
-      <assemblyIdentity name="gera_memorial" version="2.0.0.2" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="gera_memorial.exe" size="373760">
+      <assemblyIdentity name="gera_memorial" version="2.0.0.3" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Ue0cbCYcUATySV5DmTbUnfrSblY=</dsig:DigestValue>
+        <dsig:DigestValue>yZQDU6a/917tlUWfHAZdSZ8K8jo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

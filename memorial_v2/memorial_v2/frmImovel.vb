@@ -23,7 +23,7 @@ Public Class frmImovel
             Return m_Aream2
         End Get
         Set(value As Double)
-            m_Aream2 = Value
+            m_Aream2 = value
         End Set
     End Property
     Public Shared m_Aream2 As Double
@@ -33,7 +33,7 @@ Public Class frmImovel
             Return m_per
         End Get
         Set(value As Double)
-            m_per = Value
+            m_per = value
         End Set
     End Property
     Public Shared m_per As Double
@@ -1261,7 +1261,7 @@ Public Class frmImovel
             AddTxtRegular(RichTxtMemo, vbTab & paragFinal)
 
             'Espaço entre texto e assinatura
-            If txtCidade.TextLength > 0 OrElse chkData.Checked = True OrElse optHoje.Checked = True OrElse _
+            If txtCidade.TextLength > 0 OrElse chkData.Checked = True OrElse optHoje.Checked = True OrElse
                 OptOutra.Checked = True OrElse txtNomeProf.TextLength > 0 OrElse txtRegistro.TextLength > 0 Then
                 With RichTxtMemo
                     .AppendText(vbNewLine)
@@ -1345,7 +1345,7 @@ Public Class frmImovel
             RichTxtMemo.AppendText(vbNewLine)
 
         Else
-            MessageBox.Show("Não há dados na tabela para gerar o Memorial Descritivo." & _
+            MessageBox.Show("Não há dados na tabela para gerar o Memorial Descritivo." &
                                vbNewLine & "Você precisa adicionar os vértices do imóvel.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.TabControl1.SelectedTab = TabPage2
         End If
@@ -1389,7 +1389,7 @@ Public Class frmImovel
     Private Sub TabControl1_Selected(sender As Object, e As TabControlEventArgs) Handles TabControl1.Selected
         If Me.TabControl1.SelectedTab.Text = "Memorial Descritivo" Then
             If ToolStripBtnEdit.Enabled = False Then 'Para verificar se tem dados, resolvi ver se o botão 'Editar' está ativo
-                MessageBox.Show("Não há dados na tabela para gerar o Memorial Descritivo." & _
+                MessageBox.Show("Não há dados na tabela para gerar o Memorial Descritivo." &
                                 vbNewLine & "Você precisa adicionar os vértices do imóvel.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.TabControl1.SelectedTab = TabPage2
             End If
@@ -1462,16 +1462,6 @@ Public Class frmImovel
         End Select
     End Sub
 
-    'Teste, apagar depois
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim p = WebRequest.GetSystemWebProxy
-        If (p.GetProxy(New Uri("http://www.google.com")).Equals(New Uri("http://www.google.com"))) Then
-            MessageBox.Show("sem proxy")
-        Else
-            MessageBox.Show("proxy ativado")
-        End If
-
-    End Sub
 End Class
 
 'Classe para colorir os botões do ToolStrip diferente
