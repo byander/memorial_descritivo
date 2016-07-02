@@ -1,0 +1,12 @@
+Gerador automático de Memorial Descritivo de uma área, com base nas coordenadas cartesianas de seus vértices, 
+confrontantes e tipos de divisas, calculando as distâncias e azimutes.
+
+O software Gerar Memorial Descritivo é um software livre; você pode redistribuí-lo e/ou modificá-lo sob 
+os termos da Licença Pública Geral GNU (GNU General Public License), conforme publicada pela Free Software Foundation;
+quer a versão 3 da Licença, ou (a seu critério) qualquer versão posterior.
+
+O software Gerar Memorial Descritivo é distribuído na expectativa de que seja útil, 
+porém SEM NENHUMA GARANTIA; sem mesmo implicar garantias de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM FIM ESPECÍFICO. 
+Veja a Licença Pública Geral GNU para maiores detalhes.
+
+A cópia da Licença Pública Geral GNU pode ser visualizado no link http://www.gnu.org/licenses/.
