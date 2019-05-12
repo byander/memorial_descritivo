@@ -1,220 +1,442 @@
-<!DOCTYPE HTML>
-<!--
-        Miniport by HTML5 UP
-        html5up.net | @n33co
-        Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-    <head>
-        <title>Gerar Memorial Descritivo</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.scrolly.min.js"></script>
-        <script src="js/skel.min.js"></script>
-        <script src="js/init.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-        <!-- Link para o plugin prettyPhoto  -->
-        <!-- <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script> -->
-        <script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
-        <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<head>
 
-        <noscript>
-        <link rel="stylesheet" href="css/skel.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/style-desktop.css" />
-        </noscript>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="byAnder">
 
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES * * */
-            var disqus_shortname = 'byander';
+    <link rel="icon" href="img/icone.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/icone.ico" type="image/x-icon" />
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-                console.log(dsq.src);
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
+    <title>Gerar Memorial Descritivo</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="robots" content="index, follow">
 
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-        <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
-    </head>
-    <body>
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css">
 
-        <script type="text/javascript" charset="utf-8">
-            $(document).ready(function () {
-                $("a[rel^='prettyPhoto']").prettyPhoto();
-                social_tools: '<div>merda</div>';
-            });
-        </script>
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 
-        <!-- Nav -->
-        <nav id="nav">
-            <ul class="container">
-                <li><a href="#top">Topo</a></li>
-                <li><a href="#manual">Tutorial</a></li>
-                <li><a href="#contact">Contato</a></li>
-                <li><a href="#comentario">Deixe seu comentário</a></li>
-            </ul>
-        </nav>
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
 
-        <!-- Topo -->
-        <div class="wrapper style1 first">
-            <article class="container" id="top">
-                <div class="row">
-                    <div class="4u">
-                        <span class="image fit"><img src="images/icone2.png" alt="" /></span>
-                    </div>
-                    <div class="8u">
-                        <header>
-                            <h1>Gerar Memorial Descritivo</h1>
-                        </header>
-                        <p>O software <strong>Gera Memorial</strong> foi desenvolvido para criar Memorial Descritivo de uma área, com base nas coordenadas cartesianas de seus vértices, confrontantes e tipos de divisas, calculando as distâncias e azimutes.</p>
+<body id="page-top">
 
-                        <a href="https://github.com/byander/memorial_descritivo/blob/publish/Instalar%20Gera%20Memorial.msi?raw=true" class="button big scrolly">Download do software</a>
-                        <a href="https://github.com/byander/memorial_descritivo/blob/publish/Gera_Memorial_Portable.zip?raw=true" class="button big scrolly">Download Versão Portable</a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+        <div class="container">
+            <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Anderson</a> -->
+            <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-disable rounded"
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#top">Sobre</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#tutorial">Tutorial</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contato</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="#comentario">Comentários</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-                        <p></p>
-                        <h6><strong>Histórico</strong></h6>
+    <!-- Header -->
+    <section class="resume-section">
+        <header class="masthead text-center">
+            <div class="container">
+                <img class="img-fluid img-profile d-block mx-auto" src="img/logo.png" alt="">
+                <h1 class="text-uppercase mb-5">Gerar
+                    <span class="text-primary">Memorial Descritivo</span>
+                </h1>
+                <p class="text-justify">
+                    O software <strong>Gera Memorial</strong> foi desenvolvido para criar Memorial Descritivo de uma
+                    área, com base nas coordenadas cartesianas de seus vértices, confrontantes e tipos de divisas,
+                    calculando as distâncias e azimutes.
+                </p>
+                <ul class="list-inline list-social-icons mb-2">
+                    <li class="list-inline-item">
+                        <a
+                            href="https://github.com/byander/memorial_descritivo/blob/publish/Instalar%20Gera%20Memorial.msi?raw=true">
+                            <span class="btn btn-primary btn-lg m-1">Download do software</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a
+                            href="https://github.com/byander/memorial_descritivo/blob/publish/Gera_Memorial_Portable.zip?raw=true">
+                            <span class="btn btn-primary btn-lg m-1">Download Versão Portable</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <h6><strong>Requisitos:</strong></h6>
+                <nav id="nov">
+                    É necessário ter instalado o Microsoft .NET Framework 4. Caso não tenha, o mesmo pode ser
+                    baixado no
+                    <strong> <a href="http://www.microsoft.com/pt-br/download/details.aspx?id=17851"
+                            target="_blank">site da Microsoft.</a></strong>
+
+                </nav>
+                <p></p>
+                <a href="https://github.com/byander/memorial_descritivo" target="_blank"
+                    class="btn btn-primary btn-lg m-1">Página do projeto</a>
+        </header>
+        </div>
+
+        <section class="experiencia resume-section">
+            <div class="container">
+                <div class="resume-item d-flex flex-column flex-md-row mb-5">
+                    <div class="container">
+                        <h3 class="mb-0">Histórico</h3>
                         <h6><strong>Versão 2.0.0.2:</strong></h6>
                         <nav id="nov">
-                            <ul class="novlista">
-                                <li>Correção ao verificar se o software tem atualização quando tem proxy na rede.</li>
+                            <ul class="text-justify a fa-ul mb-0">
+                                <li><i class="fa-li fa fa-check"></i>
+                                    Correção ao verificar se o software tem atualização
+                                    quando tem proxy na rede.
+                                </li>
                             </ul>
                         </nav>
                         <h6><strong>Versão 2.0.0.1:</strong></h6>
                         <nav id="nov">
-                            <ul class="novlista">
-                                <li>Correção na importação de dados ao colar do Excel.</li>
+                            <ul class="text-justify a fa-ul mb-0">
+                                <li>
+                                    <i class="fa-li fa fa-check"></i>
+                                    Correção na importação de dados ao colar do Excel.
+                                </li>
                             </ul>
                         </nav>
                         <h6><strong>Versão 2.0.0.0:</strong></h6>
                         <nav id="nov">
-                            <ul class="novlista">
-                                <li>Visual renovado, com design mais atual!</li>
-                                <li>Disponibilidade de versão portable, ou seja, sem a necessidade de instalação.</li>
-                                <li>Importação de pontos mais simplificado.</li>
-                                <li>Agora é possível colar dados diretamente de uma planilha Excel!</li>
-                                <li>Opção de salvar o projeto, para abrir e finalizar num outro momento!</li>
-                                <li>Correções de pequenos erros de instalação.</li>
+                            <ul class="text-justify a fa-ul mb-0">
+                                <li><i class="fa-li fa fa-check"></i>
+                                    Visual renovado, com design mais atual!
+                                </li>
+                                <li><i class="fa-li fa fa-check"></i>
+                                    Disponibilidade de versão portable, ou seja, sem a necessidade de instalação.
+                                </li>
+                                <li><i class="fa-li fa fa-check"></i>
+                                    Importação de pontos mais simplificado.
+                                </li>
+                                <li><i class="fa-li fa fa-check"></i>
+                                    Agora é possível colar dados diretamente de uma planilha Excel!
+                                </li>
+                                <li><i class="fa-li fa fa-check"></i>
+                                    Opção de salvar o projeto, para abrir e finalizar
+                                    num outro momento!</li>
+                                <li><i class="fa-li fa fa-check"></i>
+                                    Correções de pequenos erros de instalação.
+                                </li>
                             </ul>
                         </nav>
-
-                        <h6><strong>Requisitos:</strong></h6>
-                        <nav id="nov">
-
-                            É necessário ter instalado o Microsoft .NET Framework 4. Caso não tenha, o mesmo pode ser baixado no  
-                            <strong> <a href="http://www.microsoft.com/pt-br/download/details.aspx?id=17851" target="_blank">site da Microsoft.</a></strong> 
-
-                        </nav>
-                        <p></p>
-                        <a href="https://github.com/byander/memorial_descritivo" target = "_blank" class="button big scrolly">Página do projeto</a>
                     </div>
                 </div>
-            </article>
-        </div>
+            </div>
+        </section>
+    </section>
 
-        <!-- Manual-->
-        <div class="wrapper style2">
-            <article id="manual">
-                <header>
-                    <h2>Videos tutoriais</h2>
-                    <p>Abaixo seguem alguns videos para auxiliar no uso do software.</p>
-                </header>
-                <div class="container">
-                    <div class="row">
-                        <div class="4u">
-                            <section class="box style2">
-                                <a href="https://youtu.be/m823qsGjZOA" rel="prettyPhoto" title=""><img src="https://i.ytimg.com/vi/m823qsGjZOA/1.jpg?time=1431043231329" alt="" width="300" /></a>
-                                <p>Importação de pontos no formato brasileiro, ou seja, quando o separador decimal é vírgula.</p>
-                            </section>
+    <!-- Tutorial -->
+    <section class="item resume-section" id="tutorial">
+        <div class="container">
+            <h2 class="mb-5">Tutorial</h2>
+            <p class="text-justify">Seguem alguns videos para auxiliar no uso do software. </p>
+            <div class="row">
+                <div class="col-md-6 col-lg-4" data-toggle="modal" target="#item-modal-1">
+                    <a class="item-item d-block mx-auto" href="#item-modal-1">
+                        <div class="item-item-caption d-flex position-absolute h-100 w-100">
+                            <div class="item-item-caption-content my-auto w-100 text-center text-white">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                        <div class="4u">
-                            <section class="box style2">
-                                <a href="https://youtu.be/l_uuwyGFI0M" rel="prettyPhoto" title=""><img src="https://i.ytimg.com/vi/l_uuwyGFI0M/3.jpg?time=1431043302056" alt="" width="300" /></a>
-                                <p>Importação de pontos no formato americano, ou seja, quando o separador decimal é ponto.</p>
-                            </section>
+                        <img class="img-fluid" src="https://img.youtube.com/vi/m823qsGjZOA/hqdefault.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="item-item d-block mx-auto" href="#item-modal-2">
+                        <div class="item-item-caption d-flex position-absolute h-100 w-100">
+                            <div class="item-item-caption-content my-auto w-100 text-center text-white">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                        <div class="4u">
-                            <section class="box style2">
-                                <a href="https://youtu.be/-Kb-TPANqeY" rel="prettyPhoto" title=""><img src="https://i.ytimg.com/vi/-Kb-TPANqeY/1.jpg?time=1431044982899" alt="" width="300" /></a>
-                                <p>Colar dados de uma planilha Excel, sem a necessidade de exportar a tabela para um arquivo CSV.</p>
-                            </section>
+                        <img class="img-fluid" src="https://img.youtube.com/vi/l_uuwyGFI0M/hqdefault.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="item-item d-block mx-auto" href="#item-modal-3">
+                        <div class="item-item-caption d-flex position-absolute h-100 w-100">
+                            <div class="item-item-caption-content my-auto w-100 text-center text-white">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
+                        <img class="img-fluid" src="https://img.youtube.com/vi/-Kb-TPANqeY/hqdefault.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="item-item d-block mx-auto" href="#item-modal-4">
+                        <div class="item-item-caption d-flex position-absolute h-100 w-100">
+                            <div class="item-item-caption-content my-auto w-100 text-center text-white">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="https://img.youtube.com/vi/hyrp7lt8JEE/hqdefault.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a class="item-item d-block mx-auto" href="#item-modal-5">
+                        <div class="item-item-caption d-flex position-absolute h-100 w-100">
+                            <div class="item-item-caption-content my-auto w-100 text-center text-white">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="https://img.youtube.com/vi/YkFVXp3DR3M/hqdefault.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <!-- item Modals -->
+    <!-- item Modal 1 -->
+    <div class="item-modal mfp-hide" id="item-modal-1">
+        <div class="item-modal-dialog bg-white">
+            <a class="close-button d-none d-md-block item-modal-dismiss" href="#">
+                <i class="fa fa-3x fa-times"></i>
+            </a>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-secondary text-uppercase mb-0">Tutorial</h2>
+                        <iframe width="448" height="225" src="https://www.youtube.com/embed/m823qsGjZOA" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <h4 class="subheading3 mb-3">Tutorial:
+                            <span class="text-primary">Importar pontos - Formato brasileiro</span>
+                        </h4>
+                        <p class="mb-5 text-justify">
+                            Importação de pontos no formato brasileiro, ou seja, quando o separador decimal é
+                            vírgula.
+                        </p>
+                        <a class="btn btn-primary btn-lg rounded-pill item-modal-dismiss" href="#">
+                            <i class="fa fa-close"></i>Fechar</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- item Modal 2 -->
+    <div class="item-modal mfp-hide" id="item-modal-2">
+        <div class="item-modal-dialog bg-white">
+            <a class="close-button d-none d-md-block item-modal-dismiss" href="#">
+                <i class="fa fa-3x fa-times"></i>
+            </a>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-secondary text-uppercase mb-0">Tutorial</h2>
+                        <iframe width="448" height="225" src="https://www.youtube.com/embed/l_uuwyGFI0M" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <h4 class="subheading3 mb-3">Tutorial:
+                            <span class="text-primary">Importar pontos - Formato americano</span>
+                        </h4>
+                        <p class="mb-5 text-justify">Importação de pontos no formato americano, ou seja, quando o
+                            separador decimal é ponto.
+                        </p>
+                        <a class="btn btn-primary btn-lg rounded-pill item-modal-dismiss" href="#">
+                            <i class="fa fa-close"></i>Fechar</a>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="4u">
-                            <section class="box style2">
-                                <a href="https://youtu.be/hyrp7lt8JEE" rel="prettyPhoto" title=""><img src="https://i.ytimg.com/vi/hyrp7lt8JEE/2.jpg?time=1431125848505" alt="" width="300" /></a>
-                                <p>Salvando um projeto.</p>
-                            </section>
-                        </div>
-                        <div class="4u">
-                            <section class="box style2">
-                                <a href="https://youtu.be/YkFVXp3DR3M" rel="prettyPhoto" title=""><img src="https://i.ytimg.com/vi/YkFVXp3DR3M/3.jpg?time=1431127286309" alt="" width="300" /></a>
-                                <p>Editando dados da tabela.</p>
-                            </section>
-                        </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- item Modal 3 -->
+    <div class="item-modal mfp-hide" id="item-modal-3">
+        <div class="item-modal-dialog bg-white">
+            <a class="close-button d-none d-md-block item-modal-dismiss" href="#">
+                <i class="fa fa-3x fa-times"></i>
+            </a>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-secondary text-uppercase mb-0">Tutorial</h2>
+                        <iframe width="448" height="225" src="https://www.youtube.com/embed/-Kb-TPANqeY" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <h4 class="subheading3 mb-3">Tutorial:
+                            <span class="text-primary">Colar dados de uma planilha Excel</span>
+                        </h4>
+                        <p class="mb-5 text-justify">Colar dados de uma planilha Excel, sem a necessidade de exportar a
+                            tabela para um arquivo CSV.
+                        </p>
+                        <a class="btn btn-primary btn-lg rounded-pill item-modal-dismiss" href="#">
+                            <i class="fa fa-close"></i>Fechar</a>
                     </div>
                 </div>
-                <!--
-                <footer>
-                    <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-                    <a href="#portfolio" class="button big scrolly">See some of my recent work</a>
-                </footer>
-                -->
-            </article>
+            </div>
         </div>
+    </div>
 
-        <!-- Contato -->
-        <div class="wrapper style4">
-            <article id="contact" class="container 75%">
-                <header>
-                    <h2>Dúvidas? Sugestões? Contribua!</h2>
-                    <p>Você pode ajudar a desenvolver o software programando, sugerindo novas funções ou avisando sobre erros.</p>
-                </header>
-                <footer>
-                    <!-- Do not change the code! -->
-                    <a id="foxyform_embed_link_120964" href="http://br.foxyform.com/"></a>
-                    <script type="text/javascript">
-                        (function (d, t) {
-                            var g = d.createElement(t),
-                                    s = d.getElementsByTagName(t)[0];
-                            g.src = "http://br.foxyform.com/js.php?id=120964&sec_hash=cb81b41aed2&width=550px";
-                            s.parentNode.insertBefore(g, s);
-                        }(document, "script"));
-                    </script>
-                    <!-- Do not change the code! -->
-                </footer>
-            </article>
-        </div>
-
-        <!-- COMENTARIO-->
-        <div class="wrapper style4">
-            <article id="comentario">
-                <header>
-                    <h2>Deixe seu comentário</h2>
-                </header>
-                <div class="container">
-                    <div id="disqus_thread"></div>
-                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <!-- item Modal 4 -->
+    <div class="item-modal mfp-hide" id="item-modal-4">
+        <div class="item-modal-dialog bg-white">
+            <a class="close-button d-none d-md-block item-modal-dismiss" href="#">
+                <i class="fa fa-3x fa-times"></i>
+            </a>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-secondary text-uppercase mb-0">Tutorial</h2>
+                        <iframe width="448" height="225" src="https://www.youtube.com/embed/hyrp7lt8JEE" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <h4 class="subheading3 mb-3">Tutorial:
+                            <span class="text-primary">Salvando um projeto</span>
+                        </h4>
+                        <p class="mb-5 text-justify">Salvando um projeto.
+                        </p>
+                        <a class="btn btn-primary btn-lg rounded-pill item-modal-dismiss" href="#">
+                            <i class="fa fa-close"></i>Fechar</a>
+                    </div>
                 </div>
-                <footer>
-                    <ul id="copyright">
-                        <li> Direito Autorais &copy; 2015</li><li>Design: By Ander!</a></li>
-                    </ul>
-                </footer>
-
-            </article>
+            </div>
         </div>
-    </body>
+    </div>
+
+    <!-- item Modal 5 -->
+    <div class="item-modal mfp-hide" id="item-modal-5">
+        <div class="item-modal-dialog bg-white">
+            <a class="close-button d-none d-md-block item-modal-dismiss" href="#">
+                <i class="fa fa-3x fa-times"></i>
+            </a>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-secondary text-uppercase mb-0">Tutorial</h2>
+                        <iframe width="448" height="225" src="https://www.youtube.com/embed/YkFVXp3DR3M" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        <h4 class="subheading3 mb-3">Tutorial:
+                            <span class="text-primary">Editando dados da tabela.</span>
+                        </h4>
+                        <p class="mb-5 text-justify">Editando dados da tabela.
+
+                        </p>
+                        <a class="btn btn-primary btn-lg rounded-pill item-modal-dismiss" href="#">
+                            <i class="fa fa-close"></i>Fechar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contato -->
+    <section class="resume-section" id="contact">
+        <div class="container">
+            <h2 class="mb-5 text-white">Contato</h2>
+            <p class="text-justify">
+                Dúvidas? Sugestões? Contribua!
+            </p>
+            <p class="text-justify">
+                Você pode ajudar a desenvolver o software programando, sugerindo novas funções ou avisando sobre
+                erros.
+            </p>
+            <div id="iframe-contact">
+                <!-- Do not change the code! -->
+                <a id="foxyform_embed_link_120964" href="http://br.foxyform.com/"></a>
+                <script type="text/javascript">
+                    (function (d, t) {
+                        var g = d.createElement(t),
+                            s = d.getElementsByTagName(t)[0];
+                        g.src = "http://br.foxyform.com/js.php?id=120964&sec_hash=cb81b41aed2&width=550px";
+                        s.parentNode.insertBefore(g, s);
+                    }(document, "script"));
+                </script>
+                <!-- Do not change the code! -->
+            </div>
+        </div>
+    </section>
+
+    <!-- comentario -->
+    <section class="resume-section" id="comentario">
+        <div class="container">
+            <h2 class="mb-5">Comentários</h2>
+            <div class="wrapper style4">
+                <article id="comentario">
+                    <div class="container">
+                        <div id="disqus_thread"></div>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+                                rel="nofollow">comments powered by Disqus.</a></noscript>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright py-4 text-center text-white">
+        <div class="container">
+            <small>Direito Autorais &copy; 2015</small>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed ">
+        <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/popupClick.js"></script>
+</body>
+
 </html>

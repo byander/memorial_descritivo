@@ -1,0 +1,10 @@
+@mixin body-font() {
+  font-family: 'Open Sans', serif;
+}
+
+@mixin heading-font() {
+  font-weight: 700;
+	font-family: 'Saira Extra Condensed', serif;
+}
+
+
