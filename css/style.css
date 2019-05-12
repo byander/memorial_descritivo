@@ -498,12 +498,7 @@ ul.a {
   background-color: #303030;
 }
 
-iframe {
-  /* width: 448px; 
-  height: 252px; */
-}
-
 #iframe-contact {
   width: 100%; 
-  height: 100%;
+  height: 500px;
 }
